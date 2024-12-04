@@ -1,0 +1,52 @@
+.container-homepage {
+	padding: 160px 80px 80px 80px;
+	background-size: contain !important;
+	background-position: bottom center !important;
+	background-repeat: no-repeat !important;
+	min-height: 100vh;
+	background: linear-gradient(
+            to top,
+            rgba(100, 100, 100, 0.4),
+            /* Lighter black (soft gray) with 40% opacity */
+              rgba(226, 226, 226, 0.6) /* #e2e2e2 with 60% opacity */
+          ),
+          url('../images/skyline.svg');
+	table {
+	width: 100%;
+	border-collapse: collapse;
+	
+	tr {
+		border: 1px solid;
+		font-size: 22px;
+		td, th {
+			padding: 12px;
+			border-right: 1px solid;
+			text-align: center;
+			a {
+				color: inherit;
+			}
+			button{
+				padding: 12px;
+				width: 100%;
+			}
+			&.button-td{
+				padding: 12px 40px;
+			}
+		}
+		th {
+			font-family: "worksans-semibold";
+		}
+		td {
+			font-family: "worksans-regular";
+		}
+	}
+}
+.container-head{
+	display: flex;
+	justify-content: flex-end;
+	padding-bottom: 40px;
+	button{
+		padding: 20px;
+	}
+}
+}

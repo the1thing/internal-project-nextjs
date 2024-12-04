@@ -1,0 +1,23 @@
+.marquee-effect {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    height: 200px;
+    overflow-x: hidden;
+    .div-wrap {
+        .track {
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            animation: marquee 32s linear infinite;
+            color: rgba($zest-black, 0.5);
+            font-family: 'neue-haas-display-bold', sans-serif;
+            font-size: 96px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            line-height: 120%;
+            margin-bottom: 0;
+            text-transform: capitalize;
+        }
+    }
+}

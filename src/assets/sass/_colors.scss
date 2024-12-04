@@ -1,0 +1,90 @@
+:root {
+    --dark: 29, 29, 29;
+    --white: 255, 255, 255;
+    --green: 40, 169, 43;
+    --black: 33, 37, 41;
+    --pitch-black: 15, 14, 14;
+    --para_black: 105, 103, 103;
+    --light_pink_gradient: linear-gradient(90deg,rgba(252, 245, 248, 1) 0%,rgba(246, 232, 240, 1) 100%);
+    --dark_pink_gradient : linear-gradient(90deg, #ef8081 0%, #f63132 61.98%, #9f1689 100%);
+    --white: rgb(255, 255, 255);
+    --red:rgb(229, 54, 23);
+    --gray:rgb(167, 167, 167);
+    --green: rgb(40, 169, 43);
+    // $black: rgb(33, 37, 41);
+    --pitch_black: rgb(15, 14, 14);
+    --black:rgba(16, 15, 15, 0.6);                 //rgba(var(--pitch_black), 0.6)
+    --black-8:rgba(16, 15, 15, 0.8);  
+    --black-1:rgba(16, 15, 15, 0.1);
+    --black-2:rgba(16, 15, 15, 0.2);
+    
+    --black-5:rgba(16, 15, 15, 0.05);  
+    --black-6:rgba(16, 15, 15, 0.6);  
+    --black-4:rgba(16, 15, 15, 0.4);  
+                                 
+    --red-5:rgba(229,54,23,0.05);
+    --red-1:rgba(229,54,23,0.1);
+    --red-4:rgba(229,54,23,0.04);
+    
+    --white-6:rgba(255, 255, 255, 0.6);
+    --white-2:rgba(255, 255, 255, 0.2);
+    --white-4:rgba(255, 255, 255, 0.4);
+    --white-5:rgba(255, 255, 255, 0.05);      //rgba(var(--white), 0.05);
+    --white-8:rgba(255, 255, 255, 0.8);              //rgba(var(--white), 0.08);
+    --white-1:rgba(255, 255, 255, 0.01);
+    --white-3:rgba(255, 255, 255, 0.3);
+    --white-25:rgba(255, 255, 255, 0.25);
+    --white-11:rgba(255, 255, 255, 0.1);
+    --white-95:rgba(255, 255, 255, 0.95);
+    
+    
+    // $para-black: rgb(105, 103, 103);
+    // $black-opac:rgba(207, 207, 207, 0.8);
+    $light-pink-gradient: linear-gradient(90deg, rgba(252, 245, 248, 1) 0%, rgba(246, 232, 240, 1) 100%);
+    --dark-pink-gradient: linear-gradient(90deg, #ef8081 0%, #f63132 61.98%, #9f1689 100%);
+    --dark_pink_gradient: linear-gradient(90deg, #EF8081 -39.31%, #F63132 20.53%, #9F1689 79.22%);
+    --ashwhite:rgb(244,246,248);
+    --shadow:4px 4px 48px rgba(221, 41, 77, 0.1);
+    --text-gradient:linear-gradient(86.47deg, #EF8081 2.91%, #F63132 28.38%, #B0187C 42.98%);
+    --marquee:rgba(16, 15, 15, 0.05);
+    --project_stags:rgba(15, 14, 14, 0.1);
+    --prject_stgs-text:rgba(15, 14, 14, 0.8);
+    --red_opaq4:rgba(229, 54, 23,0.4);
+    --border_bottom:rgba(255, 255, 255, 0.4);
+    --breakpoint-phone:576px;
+    --breakpoint-tablet:991px;
+}
+
+// Zest Primary colours
+$zest-red: #E53617;
+$zest-black: #0F0E0E;
+$zest-gray: #A7A7A7;
+$zest-white: #ffffff;
+
+// Zest Secondary Gradients
+$light_pink_gradient: linear-gradient(90deg,rgba(252, 245, 248, 1) 0%,rgba(246, 232, 240, 1) 100%);
+$dark_pink_gradient: linear-gradient(90deg, #EF8081 -39.31%, #F63132 20.53%, #9F1689 79.22%);
+$border-gradient: linear-gradient(-180deg, #ef8081 0%, #f63132 61.98%, #9f1689 100%);
+$text-gradient: linear-gradient(86.47deg, #EF8081 2.91%, #F63132 28.38%, #B0187C 42.98%);
+$mesh-gradient: url('../../assets/img/global/mesh-gradient.svg');
+
+
+// Zest Tertiary Colors
+$zest-purple: #5454FD;
+$zest-magenta: #9F1689;
+$zest-pink: #FF7583;
+$zest-ashwhite: #F4F6F8;
+
+// Zest Shadows
+$zest-shadow: 4px 4px 48px rgba(221, 41, 77, 0.1);
+
+
+
+
+
+
+
+
+
+
+

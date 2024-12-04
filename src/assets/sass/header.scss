@@ -1,0 +1,37 @@
+header {
+	// background: #fff;
+	background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blurring effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Border for a frosted glass look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+	// left: 0;
+	position: fixed;
+	top: 0;
+	transition: .5s ease-in-out;
+	transition-duration: 1s;
+	width: 100%;
+	z-index: 9999;
+	// box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	.f-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 24px 0;
+		figure {
+			margin: 0;
+			display: flex;
+			img {}
+			span {
+				color: #0f0e0e;
+				margin-left: 8px;
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: .01rem;
+				line-height: 1.6;
+				text-transform: capitalize;
+			}
+		}
+		
+	}
+}

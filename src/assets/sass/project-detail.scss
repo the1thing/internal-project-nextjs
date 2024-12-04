@@ -1,0 +1,73 @@
+
+.project-detail-page{
+    section{
+        height: 100vh;
+        &.cover{
+            img{
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+        &.intro{
+            position: relative;
+            background-color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-inline: 100px;
+            .glass-svg{
+               position: absolute;
+               z-index: 1;
+            }
+            p{
+                color: #E2E2E2;
+text-align: center;
+font-family: "Plus Jakarta Sans",sans-serif;
+font-size: 84px;
+font-style: normal;
+font-weight: 300;
+line-height: 104px; /* 123.81% */
+text-transform: capitalize;
+position: relative;
+z-index: 2;
+
+span{
+    color: #E2E2E2;
+font-family:"times-italic",sans-serif;
+font-size: 94px;
+font-style: italic;
+font-weight: 400;
+line-height: 104px;
+text-transform: capitalize;
+}
+            }
+            .small-text{
+    color: #E2E2E2;
+font-family: "Plus Jakarta Sans",sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 300;
+line-height: 140%; /* 33.6px */
+position: absolute;
+top: 54px;
+left: 62px;
+text-align: left;
+text-transform: none;
+&:hover{
+    text-decoration: none;
+}
+&.site-visit{
+    top: unset;
+    left: unset;
+    right: 110px;
+    bottom: 70px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 32px;
+}
+}
+
+        }
+    }
+}

@@ -1,0 +1,15 @@
+// sass --watch sass/main.scss:css/style.min.css --style compressed
+
+
+@import "_colors.scss";
+@import "_fonts.scss";
+@import "global.scss";
+@import "_animations.scss";
+// @import "_typography.scss";
+@import "_breakpoints.scss";
+@import "_keyframes.scss";
+@import "header.scss";
+@import "index.scss";
+@import "form.scss";
+@import "project-detail.scss";
+
