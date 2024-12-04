@@ -2,6 +2,7 @@
   "name": "onething-projects",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://1thing.github.io/internal-project-nextjs/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
