@@ -46,3 +46,141 @@
         }
     }
 }
+
+.platform-selection {
+  display: flex;
+  gap: 20px;
+}
+
+.platform-selection label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+  .design_goal_list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .design_goal_list input{
+    background: none;
+    outline: none;
+    border: 1px solid #000;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+
+  .design_goal_list textarea{
+    background: none;
+    outline: none;
+    border: 1px solid #000;
+    padding: 10px 12px;
+    border-radius: 6px;
+    resize: none;
+  }
+
+  .add_new_button{
+    width: max-content;
+    background: none;
+    border: 1px solid black;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+
+  .design_goal_un_list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .design_goal_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .timeline-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .timeline-container input {
+    width: 200px;
+    padding: 0.5rem;
+  }
+  
+  .timeline-container select {
+    padding: 0.5rem;
+  }
+
+  .timeline_unit{
+    background: none;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .commercial_list{
+    display: flex;
+    flex-direction: column;
+    input{
+      background: none;
+      outline: none;
+      border: 1px solid black;
+      border-radius: 6px;
+    }
+  }
+  
+
+
+  .terms_conditions_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .term_condition_item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .term_condition_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .term_condition_item input,
+  textarea {
+    background: none;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    outline: none;
+  }
+  
+  .term_condition_item textarea {
+    resize: none;
+    height: 60px;
+  }
+  
+  .brief{
+    border: 1px solid black;
+    padding: 20px 40px;
+    border-radius: 6px;
+  }
