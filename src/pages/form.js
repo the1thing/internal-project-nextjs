@@ -262,11 +262,10 @@ export default function Form() {
             {/* Platforms */}
             <div className="form-div">
               <label>Platforms:</label>
+
               <div className="platform-selection">
-                <label>
-                  <input
-                    type="checkbox"
-                    id="mobile"
+                <div class="form-group">
+                  <input 
                     checked={formData.platforms?.includes("Mobile") || false}
                     onChange={(e) => {
                       const platform = "Mobile";
@@ -277,13 +276,12 @@ export default function Form() {
                         return { ...prevData, platforms: updatedPlatforms };
                       });
                     }}
-                  />
-                  Mobile
-                </label>
-                <label>
+                    type="checkbox" 
+                    id="html"/>
+                  <label for="html">Mobile</label>
+                </div>
+                <div class="form-group">
                   <input
-                    type="checkbox"
-                    id="desktop"
                     checked={formData.platforms?.includes("Desktop") || false}
                     onChange={(e) => {
                       const platform = "Desktop";
@@ -294,9 +292,9 @@ export default function Form() {
                         return { ...prevData, platforms: updatedPlatforms };
                       });
                     }}
-                  />
-                  Desktop
-                </label>
+                    type="checkbox" id="css"/>
+                  <label for="css">Desktop</label>
+                </div>
               </div>
             </div>
 
@@ -534,13 +532,6 @@ export default function Form() {
                 </select>
               </div>
             </div>
-
-            {/* Commercials */}
-
-
-
-
-
 
             {/* Client Name */}
             <div className="form-div">
