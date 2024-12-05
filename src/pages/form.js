@@ -30,6 +30,14 @@ export default function Form() {
   const [termsAndConditions, setTermsAndConditions] = useState([{subheading : "", description : ""}]);
   const [commercials, setCommercials] = useState([{subheading : "", description : ""}]);
   const [teamStructure, setTeamStructure] = useState([{subheading : "", description : ""}]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleUnitChange = (unit) => {
+    handleChange({
+      target: { id: "timeline_unit", value: unit },
+    });
+    setDropdownOpen(false);
+  };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -509,29 +517,47 @@ export default function Form() {
 
             {/* Project Timeline */}
             <div className="form-div">
-              <label htmlFor="timeline_duration">Project Timeline:</label>
-              <div className="timeline-container">
-                <input
-                  type="number"
-                  id="timeline_duration"
-                  value={formData.timeline_duration || ""}
-                  onChange={handleChange}
-                  placeholder="Enter duration"
-                  required
-                  min="1"
-                />
-                <select
-                  id="timeline_unit"
-                  value={formData.timeline_unit || "weeks"}
-                  onChange={handleChange}
-                  required
-                  className="timeline_unit"
-                >
-                  <option value="weeks">Weeks</option>
-                  <option value="months">Months</option>
-                </select>
-              </div>
-            </div>
+                  <label htmlFor="timeline_duration">Project Timeline:</label>
+                  <div className="timeline-container">
+                    {/* Number Input */}
+                    <input
+                      type="number"
+                      id="timeline_duration"
+                      value={formData.timeline_duration || ""}
+                      onChange={handleChange}
+                      placeholder="Enter duration"
+                      required
+                      min="1"
+                    />
+
+                    {/* Custom Dropdown */}
+                    <div
+                      className={`custom-dropdown ${dropdownOpen ? "open" : ""}`}
+                      onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown visibility
+                    >
+                      <div className="selected-option">
+                        {formData.timeline_unit || "weeks"}
+                        <span className="arrow">▼</span>
+                      </div>
+                      {dropdownOpen && (
+                        <div className="dropdown-options">
+                          <div
+                            className="dropdown-option"
+                            onClick={() => handleUnitChange("weeks")}
+                          >
+                            Weeks
+                          </div>
+                          <div
+                            className="dropdown-option"
+                            onClick={() => handleUnitChange("months")}
+                          >
+                            Months
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
 
             {/* Client Name */}
             <div className="form-div">
