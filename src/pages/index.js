@@ -41,10 +41,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <div class="container-homepage">
-          <div class="container-head">
-            <div class="cta-wrapper">
-              <a class="bttn bttn-primary" href="/form">
+        <div className="container-homepage">
+          <div className="container-head">
+            <div className="cta-wrapper">
+              <a className="bttn bttn-primary" href="/form">
                 Add New +
               </a>
             </div>

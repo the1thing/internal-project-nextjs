@@ -78,7 +78,7 @@ export default function Form() {
               />
             </div>
 
-            <div class="form-div">
+            <div className="form-div">
               <label htmlFor="project_description">Project Description:</label>
               <textarea
                 id="project_description"
@@ -88,7 +88,7 @@ export default function Form() {
                 required
               ></textarea>
             </div>
-            <div class="form-div">
+            <div className="form-div">
               <label htmlFor="client_name">Client name:</label>
               <input
                 type="text"
@@ -99,7 +99,7 @@ export default function Form() {
                 required
               />
             </div>
-            <div class="form-div">
+            <div className="form-div">
               <label htmlFor="email">Email:</label>
               <input
                 type="email"
@@ -110,7 +110,7 @@ export default function Form() {
                 required
               />
             </div>
-            <div class="form-div">
+            <div className="form-div">
               <label htmlFor="number">Contact Number:</label>
               <input
                 type="text"
