@@ -170,7 +170,7 @@ export default function ProjectDetail() {
                 <span>8+</span> years in the business
               </p>
             </div>
-            {/* <div className="num num1">
+            <div className="num num1">
               <img src="/images/profiles.png" width={800} height={96} />
               <p>
                 <span>70+</span> team
@@ -194,9 +194,9 @@ export default function ProjectDetail() {
                 <span>10+</span> AWARDS RECEIVED
               </p>
               <img src="/images/elephant.png" width={136} height={76} />
-            </div> */}
+            </div>
           </section>
-          {/* <section className="awards">
+          <section className="awards">
             <p>
               Awards &<br /> <span>recognitions</span>
             </p>
@@ -290,8 +290,8 @@ export default function ProjectDetail() {
                 </tr>
               </tbody>
             </table>
-          </section> */}
-          {/* <section className="partners">
+          </section>
+          <section className="partners">
             <p>
               Our <span>partners</span>
             </p>
@@ -417,8 +417,8 @@ export default function ProjectDetail() {
                 />
               </div>
             </div>
-          </section> */}
-          {/* <section className="ideation">
+          </section>
+          <section className="ideation">
             <div className="ideation-head">
               <p>
                 WITH YOU <span>from</span>
@@ -555,7 +555,7 @@ export default function ProjectDetail() {
                 </li>
               </ul>
             </div>
-          </section> */}
+          </section>
         </div>
         <div className="download-cta">
           <button onClick={downloadPDF}>DOWNLOAD</button>
