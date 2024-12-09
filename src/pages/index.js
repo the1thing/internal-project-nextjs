@@ -57,7 +57,7 @@ export default function Home() {
                 <th>Email</th>
                 <th>Number</th>
                 <th></th>
-                <th></th>
+                {/* <th></th> */}
               </tr>
             </thead>
             <tbody id="projectTableBody">
@@ -72,7 +72,7 @@ export default function Home() {
                       <button>View Page</button>
                     </Link>
                   </td>
-                  <td>
+                  {/* <td>
                     {" "}
                     <button
                       onClick={() =>
@@ -81,7 +81,7 @@ export default function Home() {
                     >
                       Download Page
                     </button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

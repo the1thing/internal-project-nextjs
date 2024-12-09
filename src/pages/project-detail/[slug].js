@@ -106,7 +106,7 @@ export default function ProjectDetail() {
       <main>
         <div className="project-detail-page" id="pdf-content" ref={pdfRef}>
           <section className="cover">
-            <a href="https://onething.design" target="_blank">
+            <a href="/" target="_blank">
               <img
                 src="/images/full-logo.svg"
                 style={{ height: "auto", width: "auto" }}
@@ -570,7 +570,39 @@ export default function ProjectDetail() {
           </section>
         </div>
         <div className="download-cta">
-          <button onClick={downloadPDF}>DOWNLOAD</button>
+          <button onClick={downloadPDF} className="svg-wrapper">
+            {/* <div className="svg-wrapper"> */}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15"
+                  stroke="#1C274C"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+                <path
+                  d="M12 3V16M12 16L16 11.625M12 16L8 11.625"
+                  stroke="#1C274C"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+              </g>
+            </svg>
+            {/* </div> */}
+          </button>
         </div>
       </main>
     </div>

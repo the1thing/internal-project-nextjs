@@ -547,10 +547,26 @@ line-height: 120%;
 }
 .download-cta{
     position: sticky;
-    bottom: 0;
-    right: 0;
+    bottom: 4%;
+    right: 4%;
     display: flex;
     justify-content: flex-end;
+   padding-right: 40px;
+   .svg-wrapper{
+    border-radius: 50%;
+    padding: 20px !important;
+    border: none;
+    background-color: #1a1a1a;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+
+    svg{
+        width: 32px;
+        height: 32px;
+        path{
+            stroke: #e2e2e2;
+        }
+    }
+}
 }
 }
 @media print {

@@ -979,10 +979,25 @@ main .project-detail-page section.brief .content ul li span {
 }
 main .download-cta {
   position: sticky;
-  bottom: 0;
-  right: 0;
+  bottom: 4%;
+  right: 4%;
   display: flex;
   justify-content: flex-end;
+  padding-right: 40px;
+}
+main .download-cta .svg-wrapper {
+  border-radius: 50%;
+  padding: 20px !important;
+  border: none;
+  background-color: #1a1a1a;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+main .download-cta .svg-wrapper svg {
+  width: 32px;
+  height: 32px;
+}
+main .download-cta .svg-wrapper svg path {
+  stroke: #e2e2e2;
 }
 
 @media print {
