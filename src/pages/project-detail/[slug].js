@@ -201,7 +201,7 @@ export default function ProjectDetail() {
               <img src="/images/elephant.png" width={136} height={76} />
             </div>
           </section>
-          {/* <section className="awards">
+          <section className="awards">
             <p>
               Awards &<br /> <span>recognitions</span>
             </p>
@@ -560,7 +560,7 @@ export default function ProjectDetail() {
                 </li>
               </ul>
             </div>
-          </section> */}
+          </section>
         </div>
         <div className="download-cta">
           <button onClick={downloadPDF}>DOWNLOAD</button>

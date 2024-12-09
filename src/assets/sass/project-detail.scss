@@ -4,7 +4,7 @@ main{
 .project-detail-page{
     section{
         // height: 100vh;
-        border: 1px solid #000;
+        // border: 1px solid #000;
         &.cover{
             background-color: #E2E2E2;
             position: relative;
@@ -16,8 +16,8 @@ main{
             position: absolute;
             width: 289px;
 height: 64.03px;
-top: 64px;
-left: 64px;
+top: 5%;
+left: 3%;
            }
            .small-text{
             color: #1A1A1A;
@@ -28,8 +28,8 @@ font-style: normal;
 font-weight: 300;
 line-height: 140%; /* 33.6px */
 position: absolute;
-bottom: 56px;
-right: 56px;
+bottom: 3%;
+    right: 3%;
            }
            .main-text{
             color: #1A1A1A;
@@ -86,10 +86,10 @@ left: 0;
            }
            .glass-svg{
             position: absolute;
-            top:60px ;
-            right: 274px;
-    width: 340px;
-    height: 323px;
+           top: 6%;
+    right: 15%;
+    width: 280px;
+    height: 270px;
 z-index: 0;
            }
         }
@@ -105,7 +105,7 @@ z-index: 0;
                position: absolute;
                z-index: 1;
                opacity: 0.9;
-
+margin-left: 4%;
             }
             p{
                 color: #E2E2E2;
@@ -148,8 +148,8 @@ text-transform: none;
 &.site-visit{
     top: unset;
     left: unset;
-    right: 110px;
-    bottom: 70px;
+   right: 4%;
+    bottom: 6%;
     display: flex;
     gap: 30px;
     align-items: center;
