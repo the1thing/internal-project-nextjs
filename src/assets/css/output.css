@@ -292,6 +292,117 @@ header .f-container figure span {
   border: 1px solid #000;
   outline: none;
 }
+.container-homepage form .form-div .timeline-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.container-homepage form .form-div .timeline-container input[type=number] {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+}
+.container-homepage form .form-div .timeline-container .custom-dropdown {
+  position: relative;
+  width: 150px;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: none;
+}
+.container-homepage form .form-div .timeline-container .custom-dropdown .selected-option {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container-homepage form .form-div .timeline-container .custom-dropdown .arrow {
+  font-size: 12px;
+  color: #666;
+}
+.container-homepage form .form-div .timeline-container .custom-dropdown.open .dropdown-options {
+  display: block;
+}
+.container-homepage form .form-div .timeline-container .dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #000;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.container-homepage form .form-div .timeline-container .dropdown-option {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.container-homepage form .form-div .timeline-container .dropdown-option:hover {
+  background-color: #666;
+  color: #fff;
+}
+.container-homepage form .form-div .timeline-container input {
+  width: 200px;
+  padding: 0.5rem;
+}
+.container-homepage form .form-div .timeline-container select {
+  padding: 0.5rem;
+}
+.container-homepage form .form-div .platform-selection {
+  display: flex;
+  gap: 20px;
+}
+.container-homepage form .form-div .platform-selection .form-group {
+  display: block;
+  margin-bottom: 15px;
+}
+.container-homepage form .form-div .platform-selection .form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.container-homepage form .form-div .platform-selection .form-group label {
+  position: relative;
+  cursor: pointer;
+}
+.container-homepage form .form-div .platform-selection .form-group label:before {
+  content: "";
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.container-homepage form .form-div .platform-selection .form-group input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: 2px solid #0079bf;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.container-homepage form .form-div .platform-selection label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
 .container-homepage form .submit-btn {
   margin-top: 40px;
   margin-left: auto;
@@ -305,36 +416,25 @@ header .f-container figure span {
 .container-homepage form .submit-btn:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
-
-.platform-selection {
-  display: flex;
-  gap: 20px;
+.container-homepage form .brief {
+  border: 1px solid black;
+  padding: 20px 40px;
+  border-radius: 6px;
 }
-
-.platform-selection label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.design_goal_list {
+.container-homepage form .brief .design_goal_list {
   display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
 }
-
-.design_goal_list input {
+.container-homepage form .brief .design_goal_list input {
   background: none;
   outline: none;
   border: 1px solid #000;
   padding: 10px 12px;
   border-radius: 6px;
 }
-
-.design_goal_list textarea {
+.container-homepage form .brief .design_goal_list textarea {
   background: none;
   outline: none;
   border: 1px solid #000;
@@ -342,8 +442,7 @@ header .f-container figure span {
   border-radius: 6px;
   resize: none;
 }
-
-.add_new_button {
+.container-homepage form .brief .add_new_button {
   width: max-content;
   background: none;
   border: 1px solid black;
@@ -352,209 +451,23 @@ header .f-container figure span {
   border-radius: 6px;
   margin-top: 10px;
 }
-
-.design_goal_un_list {
+.container-homepage form .brief .design_goal_un_list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
-.design_goal_head {
+.container-homepage form .brief .design_goal_head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.timeline-container {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.timeline-container input {
-  width: 200px;
-  padding: 0.5rem;
-}
-
-.timeline-container select {
-  padding: 0.5rem;
-}
-
-.timeline_unit {
-  background: none;
-  border-radius: 6px;
-  outline: none;
-}
-
-.commercial_list {
-  display: flex;
-  flex-direction: column;
-}
-.commercial_list input {
-  background: none;
-  outline: none;
-  border: 1px solid black;
-  border-radius: 6px;
-}
-
-.terms_conditions_list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.term_condition_item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.term_condition_head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.term_condition_item input,
-textarea {
-  background: none;
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 8px;
-  border: 1px solid #000;
-  border-radius: 6px;
-  outline: none;
-}
-
-.term_condition_item textarea {
-  resize: none;
-  height: 60px;
-}
-
-.brief {
-  border: 1px solid black;
-  padding: 20px 40px;
-  border-radius: 6px;
-}
-
-.custom-checkbox {
-  color: #000;
-}
-
-.timeline_unit {
-  padding: 0 20px;
-}
-
-.form-group {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.form-group input {
-  padding: 0;
-  height: initial;
-  width: initial;
-  margin-bottom: 0;
-  display: none;
-  cursor: pointer;
-}
-
-.form-group label {
-  position: relative;
-  cursor: pointer;
-}
-
-.form-group label:before {
-  content: "";
-  background-color: transparent;
-  border: 1px solid #000;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
-  padding: 10px;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.form-group input:checked + label:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 3px;
-  left: 9px;
-  width: 6px;
-  height: 14px;
-  border: 2px solid #0079bf;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.timeline-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-input[type=number] {
-  padding: 8px;
-  font-size: 16px;
-  width: 200px;
-}
-
-.custom-dropdown {
-  position: relative;
-  width: 150px;
-  cursor: pointer;
-  border: 1px solid #000;
-  border-radius: 4px;
-  background: none;
-}
-
-.custom-dropdown .selected-option {
-  padding: 8px 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.custom-dropdown .arrow {
-  font-size: 12px;
-  color: #666;
-}
-
-.custom-dropdown.open .dropdown-options {
-  display: block;
-}
-
-.dropdown-options {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border: 1px solid #000;
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  background: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-.dropdown-option {
-  padding: 8px 12px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.dropdown-option:hover {
-  background-color: #666;
-  color: #fff;
 }
 
 main {
   position: relative;
+}
+main .project-detail-page section {
+  height: 900px;
 }
 main .project-detail-page section.cover {
   background-color: #E2E2E2;
@@ -893,6 +806,7 @@ main .project-detail-page section.ideation {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
 }
 main .project-detail-page section.ideation p {
   color: #1A1A1A;

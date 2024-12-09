@@ -3,7 +3,7 @@ main{
     position: relative;
 .project-detail-page{
     section{
-        // height: 100vh;
+        height: 900px;
         // border: 1px solid #000;
         &.cover{
             background-color: #E2E2E2;
@@ -321,6 +321,7 @@ text-transform: capitalize;
             display: flex;
             flex-direction: column;
             gap: 72px;
+            // height: 100vh;
                 background-position: center;
     background-size: cover;
             p{
@@ -361,6 +362,7 @@ text-transform: uppercase;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100vh;
 
             p{
                 color: #1A1A1A;
