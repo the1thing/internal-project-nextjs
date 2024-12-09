@@ -29,54 +29,59 @@ export default function ProjectDetail() {
       console.error("Error fetching projects: ", error);
     }
   };
-  // const downloadpupppeteerPDF = () => {
-  //   window.open(`/api/generate-pdf?projectId=${slug}`, "_blank");
-  // };
+  const downloadpupppeteerPDF = () => {
+    window.open(`/api/generate-pdf?projectId=${slug}`, "_blank");
+  };
   const downloadPDF = () => {
-    const input = pdfRef.current;
+    const input = pdfRef.current; // Reference to the container
+    const sections = input.querySelectorAll("section"); // Select all sections
 
     // Ensure all images are loaded
-    const images = input.querySelectorAll("img");
-    const imagePromises = Array.from(images).map((img) => {
-      return new Promise((resolve, reject) => {
-        if (img.complete) {
-          resolve();
-        } else {
-          img.onload = resolve;
-          img.onerror = reject;
-        }
-      });
-    });
-
-    // Wait for all images to be loaded before proceeding
-    Promise.all(imagePromises)
-      .then(() => {
-        html2canvas(input).then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
-          const pdf = new jsPDF("p", "mm", "a4", true);
-          const pdfWidth = pdf.internal.pageSize.getWidth();
-          const pdfHeight = pdf.internal.pageSize.getHeight();
-          const imgWidth = canvas.width;
-          const imgHeight = canvas.height;
-          const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-          const imgX = (pdfWidth - imgWidth * ratio) / 2;
-          const imgY = 30;
-
-          pdf.addImage(
-            imgData,
-            "PNG",
-            imgX,
-            imgY,
-            imgWidth * ratio,
-            imgHeight * ratio
-          );
-          pdf.save("invoice.pdf");
+    const loadImages = (section) => {
+      const images = section.querySelectorAll("img");
+      const imagePromises = Array.from(images).map((img) => {
+        return new Promise((resolve, reject) => {
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = resolve;
+            img.onerror = reject;
+          }
         });
-      })
-      .catch((error) => {
-        console.error("Error loading images:", error);
       });
+      return Promise.all(imagePromises);
+    };
+
+    const processSections = async () => {
+      const pdf = new jsPDF("landscape", "pt", [1440, 900]); // PDF in 1440x900 dimensions
+
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        await loadImages(section); // Ensure all images in this section are loaded
+
+        const canvas = await html2canvas(section, {
+          scale: 2, // Improves resolution
+          useCORS: true,
+        });
+
+        const imgData = canvas.toDataURL("image/png");
+        pdf.addImage(imgData, "PNG", 0, 0, 1440, 900);
+
+        // Add a new page if not the last section
+        if (i < sections.length - 1) {
+          pdf.addPage();
+        }
+      }
+
+      // Save the PDF
+      pdf.save("project-detail.pdf");
+    };
+
+    processSections().catch((error) => {
+      console.error("Error generating PDF:", error);
+    });
   };
+
   const windowFun = () => {
     window.print();
   };
@@ -99,13 +104,15 @@ export default function ProjectDetail() {
       </Head>
 
       <main>
-        <div className="project-detail-page" ref={pdfRef}>
+        <div className="project-detail-page" id="pdf-content" ref={pdfRef}>
           <section className="cover">
-            <img
-              src="/images/full-logo.svg"
-              style={{ height: "auto", width: "auto" }}
-              className="logo-svg"
-            />
+            <a href="https://onething.design" target="_blank">
+              <img
+                src="/images/full-logo.svg"
+                style={{ height: "auto", width: "auto" }}
+                className="logo-svg"
+              />
+            </a>
             <p className="small-text">
               Designing for every customer touchpoint,
               <br /> from awareness to advocacy
