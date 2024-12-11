@@ -253,7 +253,7 @@ header .f-container figure span {
 .container-homepage table tr td,
 .container-homepage table tr th {
   padding: 20px;
-  border-right: 1px solid;
+  border-right: 1px solid #000;
   text-align: center;
   font-size: 26px;
   font-style: normal;

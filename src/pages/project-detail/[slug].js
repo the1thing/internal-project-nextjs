@@ -65,7 +65,7 @@ export default function ProjectDetail({ projectData }) {
 
       // Save the PDF
       pdf.save(`${projectData.project_name}.pdf`);
-      setLoading(true);
+      setLoading(false);
     };
 
     processSections().catch((error) => {
