@@ -49,7 +49,7 @@
 
 @font-face {
   font-family: "times-italic";
-  src: url("../fonts/Times Italic.ttf");
+  src: url("/fonts/Times Italic.ttf");
   font-style: italic;
   font-display: swap;
 }
@@ -151,6 +151,22 @@ a:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .marquee-effect {
   position: relative;
   width: 100vw;
@@ -230,17 +246,40 @@ header .f-container figure span {
   border: 1px solid;
   font-size: 22px;
 }
+.container-homepage table tr th {
+  font-weight: 600 !important;
+}
 .container-homepage table tr td, .container-homepage table tr th {
   padding: 12px;
   border-right: 1px solid;
   text-align: center;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 .container-homepage table tr td a, .container-homepage table tr th a {
   color: inherit;
 }
 .container-homepage table tr td button, .container-homepage table tr th button {
-  padding: 12px;
-  width: 100%;
+  padding: 12px 24px;
+  background: linear-gradient(to bottom, rgba(80, 80, 80, 0.8), rgba(150, 150, 150, 0.9));
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #fefefe;
+}
+.container-homepage table tr td button:hover, .container-homepage table tr th button:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container-homepage table tr td button img, .container-homepage table tr th button img {
+  height: 24px;
+  width: 24px;
 }
 .container-homepage table tr td.button-td, .container-homepage table tr th.button-td {
   padding: 12px 40px;
@@ -488,7 +527,7 @@ main .project-detail-page section.cover .small-text {
   color: #1A1A1A;
   text-align: right;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 300;
   line-height: 140%; /* 33.6px */
@@ -682,11 +721,10 @@ main .project-detail-page section.numbers .num img {
 }
 main .project-detail-page section.awards {
   padding-inline: 64px;
-  padding-top: 48px;
+  padding-top: 36px;
   background-color: #e2e2e2;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 main .project-detail-page section.awards p {
   color: var(--Primary-Black-700, #1A1A1A);
@@ -848,7 +886,7 @@ main .project-detail-page section.ideation .ideation-group .topic p {
   font-size: 24px;
 }
 main .project-detail-page section.brand-intro {
-  padding-top: 56px;
+  padding-top: 24px;
   background-color: #e2e2e2;
 }
 main .project-detail-page section.brand-intro .brand-head {
@@ -857,13 +895,20 @@ main .project-detail-page section.brand-intro .brand-head {
   border-right: none;
   display: flex;
   padding-inline: 48px 140px;
-  padding-block: 40px 24px;
+  padding-block: 20px 12px;
   align-items: center;
   justify-content: space-between;
 }
-main .project-detail-page section.brand-intro .brand-head img {
+main .project-detail-page section.brand-intro .brand-head .cover {
   width: 448px;
   height: 48px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+main .project-detail-page section.brand-intro .brand-head .cover img {
+  max-width: 100%;
+  max-height: 100%;
 }
 main .project-detail-page section.brand-intro .brand-head .brand-name {
   color: var(--Primary-Black-700, #1A1A1A);
@@ -877,6 +922,7 @@ main .project-detail-page section.brand-intro .brand-body {
   align-items: center;
   padding-inline: 120px;
   justify-content: space-between;
+  gap: 52px;
 }
 main .project-detail-page section.brand-intro .brand-body .left {
   display: flex;
@@ -892,13 +938,18 @@ main .project-detail-page section.brand-intro .brand-body .left p {
   line-height: normal;
   width: 74%;
 }
-main .project-detail-page section.brand-intro .brand-body .left button {
+main .project-detail-page section.brand-intro .brand-body .left .pills {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 40px;
+}
+main .project-detail-page section.brand-intro .brand-body .left .pills button {
   border-radius: 60px;
   border: 1px solid var(--Z-Primary-Black, #0F0E0E);
   padding: 16px;
   display: flex;
   align-items: center;
-  width: max-content;
+  width: 100%;
   gap: 12px;
   color: var(--Z-Primary-Black, #0F0E0E);
   text-align: center;
@@ -908,8 +959,13 @@ main .project-detail-page section.brand-intro .brand-body .left button {
   font-weight: 500;
   line-height: 120%; /* 16.2px */
 }
-main .project-detail-page section.brand-intro .brand-body .right img {
+main .project-detail-page section.brand-intro .brand-body .right .cover {
   width: 634px;
+  height: 696px;
+  overflow: hidden;
+}
+main .project-detail-page section.brand-intro .brand-body .right .cover img {
+  width: 100%;
   height: 100%;
 }
 main .project-detail-page section.brief {
@@ -976,6 +1032,421 @@ main .project-detail-page section.brief .content ul li span {
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
+}
+main .project-detail-page section.briefs-section {
+  padding: 36px 48px;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+main .project-detail-page section.briefs-section p {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 97.5px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 97.5px;
+  text-transform: uppercase;
+}
+main .project-detail-page section.briefs-section p span {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "times-italic";
+  font-size: 112.5px;
+  font-weight: 400;
+  line-height: 97.5px; /* 86.667% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.briefs-section .content-wrapper {
+  display: flex;
+  gap: 52px;
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card .cover {
+  max-height: 438px;
+  min-height: 438px;
+  overflow: hidden;
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card .cover img {
+  height: 100%;
+  width: 100%;
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card p {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18.75px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36.75px; /* 196% */
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card.big .cover {
+  width: 976.5px;
+}
+main .project-detail-page section.briefs-section .content-wrapper .content-card.small .cover {
+  width: 257.5px;
+}
+main .project-detail-page section.briefs-section .approach-desc {
+  color: var(--Primary-Black-700, #1A1A1A);
+  text-align: justify;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 120%; /* 28.8px */
+  text-transform: unset;
+}
+main .project-detail-page section.unique-pages {
+  padding: 48px 64px;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+main .project-detail-page section.unique-pages h6 {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 97.5px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 97.5px;
+  text-transform: uppercase;
+}
+main .project-detail-page section.unique-pages h6 span {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "times-italic";
+  font-size: 112.5px;
+  font-weight: 400;
+  line-height: 97.5px; /* 86.667% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.unique-pages .content {
+  padding-left: 42px;
+}
+main .project-detail-page section.unique-pages .content p {
+  color: var(--Primary-Black-700, #1A1A1A);
+  text-align: justify;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 38.4px */
+}
+main .project-detail-page section.unique-pages .content ol {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+main .project-detail-page section.unique-pages .content ol li {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+}
+main .project-detail-page section.process {
+  padding: 48px 64px;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+main .project-detail-page section.process h6 {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 97.5px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 97.5px;
+  text-transform: uppercase;
+}
+main .project-detail-page section.process h6 span {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "times-italic";
+  font-size: 112.5px;
+  font-weight: 400;
+  line-height: 97.5px; /* 86.667% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.process ol {
+  padding-left: 42px;
+  grid-template-columns: repeat(1, 1fr) !important;
+}
+main .project-detail-page section.process ol li {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px; /* 142.308% */
+}
+main .project-detail-page section.process ol li::marker {
+  font-weight: 400;
+}
+main .project-detail-page section.process ol li:not(:first-child) {
+  margin-top: 24px;
+}
+main .project-detail-page section.process ol li ol {
+  list-style-type: disc !important;
+}
+main .project-detail-page section.process ol li ol li {
+  margin-top: 12px !important;
+  font-weight: 400;
+}
+main .project-detail-page section.sprint-plan {
+  padding: 48px 64px;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+}
+main .project-detail-page section.sprint-plan h6 {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 97.5px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 97.5px;
+  text-transform: uppercase;
+}
+main .project-detail-page section.sprint-plan h6 span {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "times-italic";
+  font-size: 112.5px;
+  font-weight: 400;
+  line-height: 97.5px; /* 86.667% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.sprint-plan .content {
+  display: flex;
+  justify-content: flex-end;
+}
+main .project-detail-page section.sprint-plan .content p {
+  width: 50%;
+  color: #1E1E1E;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 28px */
+}
+main .project-detail-page section.sprint-plan .timeline-chart {
+  position: relative;
+  height: 72%;
+  border: 1px solid rgba(15, 14, 14, 0.2);
+}
+main .project-detail-page section.sprint-plan .timeline-chart .label-container {
+  display: flex;
+  position: absolute;
+  bottom: -10%;
+  width: 100%;
+}
+main .project-detail-page section.sprint-plan .timeline-chart .label-container span {
+  flex: 1 1 0%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--Z-Primary-Black, #0F0E0E);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 113%; /* 18.08px */
+}
+main .project-detail-page section.sprint-plan .timeline-chart .label-container p {
+  position: absolute;
+  left: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--Z-Primary-Black, #0F0E0E);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 113%; /* 18.08px */
+}
+main .project-detail-page section.sprint-plan .timeline-chart .milestone-container {
+  height: 100%;
+  overflow-y: auto;
+}
+main .project-detail-page section.sprint-plan .timeline-chart .milestone-container .milestones {
+  position: absolute;
+  background-color: #1a1a1a;
+  color: #E2E2E2;
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px; /* 185% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 36px 80px;
+  box-sizing: border-box;
+}
+main .project-detail-page section.sprint-plan .timeline-chart .milestone-container .milestones:last-child {
+  background-color: #E91010;
+}
+main .project-detail-page section.engagement {
+  padding: 48px 64px;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+main .project-detail-page section.engagement h6 {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 97.5px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 97.5px;
+  text-transform: uppercase;
+}
+main .project-detail-page section.engagement h6 span {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "times-italic";
+  font-size: 112.5px;
+  font-weight: 400;
+  line-height: 97.5px; /* 86.667% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.engagement .content {
+  display: flex;
+  gap: 54px;
+}
+main .project-detail-page section.engagement .content .left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 50%;
+  border-right: 1px solid #000;
+}
+main .project-detail-page section.engagement .content .left .upper {
+  max-height: 400px;
+  height: 100%;
+  overflow-y: scroll;
+}
+main .project-detail-page section.engagement .content .left .bill {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+main .project-detail-page section.engagement .content .left .bill p {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37px; /* 148% */
+}
+main .project-detail-page section.engagement .content .left table th {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 49px;
+}
+main .project-detail-page section.engagement .content .left table td {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 49px;
+}
+main .project-detail-page section.engagement .content .left table.lower-table tr:nth-child(2) td {
+  padding-top: 24px;
+}
+main .project-detail-page section.engagement .content .right {
+  width: 50%;
+  max-height: 634px;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+main .project-detail-page section.engagement .content .right::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+main .project-detail-page section.engagement .content .right p {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 49px; /* 196% */
+}
+main .project-detail-page section.engagement .content .right ol {
+  list-style-type: disc;
+  grid-template-columns: repeat(1, 1fr) !important;
+}
+main .project-detail-page section.engagement .content .right ol li {
+  color: var(--Primary-Black-700, #1A1A1A);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px;
+}
+main .project-detail-page section.footer {
+  background-image: url(/images/footer-bg.png);
+  background-position: right;
+  background-size: cover;
+  position: relative;
+}
+main .project-detail-page section.footer .content {
+  position: absolute;
+  left: 4%;
+  bottom: 4%;
+}
+main .project-detail-page section.footer .content p {
+  color: #E2E2E2;
+  /* Title 2/28 - Regular */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 100% */
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+main .project-detail-page section.footer .content p.mail {
+  color: #E2E2E2;
+  /* Display(Mweb)/74 - Times Italic */
+  font-family: "times-italic", sans-serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 64px; /* 86.486% */
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(226, 226, 226, 0.4);
+  text-transform: lowercase;
+}
+main .project-detail-page section.footer .content a:hover {
+  text-decoration: none !important;
+}
+main .project-detail-page section.footer .content .locations {
+  padding-top: 32px;
+  display: flex;
+  gap: 44px;
+}
+main .project-detail-page section.footer .content .locations p {
+  color: var(--Z-Primary-White, #FFF);
+  /* Title 2/28 - Regular */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px; /* 100% */
+  text-transform: capitalize;
+}
+main .project-detail-page section.footer .content .locations p:not(:last-child) {
+  padding-right: 44px;
+  border-right: 1px solid #e2e2e2;
 }
 main .download-cta {
   position: sticky;

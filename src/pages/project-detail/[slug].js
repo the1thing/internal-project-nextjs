@@ -8,27 +8,13 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../utils/firebaseConfig";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import TimelineChart from "@/components/chart";
 
-export default function ProjectDetail() {
+export default function ProjectDetail({ projectData }) {
   const pdfRef = useRef(null);
   const router = useRouter();
-  const { slug } = router.query;
-  const [projectData, setProjectData] = useState({});
-  const fetchProjectById = async () => {
-    try {
-      const projectRef = collection(db, "projects");
+  const [isMounted, setIsMounted] = useState(false);
 
-      const snapshot = await getDocs(projectRef);
-      const projectList = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-
-      setProjectData(projectList.filter((item) => item.id === slug)[0]);
-    } catch (error) {
-      console.error("Error fetching projects: ", error);
-    }
-  };
   const downloadpupppeteerPDF = () => {
     window.open(`/api/generate-pdf?projectId=${slug}`, "_blank");
   };
@@ -74,7 +60,7 @@ export default function ProjectDetail() {
       }
 
       // Save the PDF
-      pdf.save("project-detail.pdf");
+      pdf.save(`${projectData.project_name}.pdf`);
     };
 
     processSections().catch((error) => {
@@ -85,10 +71,16 @@ export default function ProjectDetail() {
   const windowFun = () => {
     window.print();
   };
-
   useEffect(() => {
-    fetchProjectById();
+    setIsMounted(true);
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+  // useEffect(() => {
+  //   fetchProjectById();
+  // }, []);
   return (
     <div>
       <Head>
@@ -474,51 +466,68 @@ export default function ProjectDetail() {
           </section>
           <section className="brand-intro">
             <div className="brand-head">
-              <p className="brand-name">Bajaj Auto</p>
-              <img src="/images/brand/brand-logo.svg" />
+              <p className="brand-name">{projectData?.brand_name}</p>
+              <div className="cover">
+                {projectData?.brandLogo ? (
+                  <img src={projectData?.brandLogo} />
+                ) : (
+                  <img src="/images/no-img.jpg" />
+                )}
+              </div>
             </div>
             <div className="brand-body">
               <div className="left">
-                <p>
-                  Enhancing the web- experience for Bajaj’s iconic
+                <p className="truncate-3">
+                  {/* Enhancing the web- experience for Bajaj’s iconic
                   <b>“Chetak”</b>
-                  line of scooters.
+                  line of scooters. */}
+                  {projectData?.project_brief}
                 </p>
-                <button>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="33"
-                    height="32"
-                    viewBox="0 0 33 32"
-                    fill="none"
-                  >
-                    <path
-                      d="M11.1763 14.6667L13.8429 17.3333L19.1763 12"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M15.1764 25.3333C21.0675 25.3333 25.8431 20.5577 25.8431 14.6667C25.8431 8.77563 21.0675 4 15.1764 4C9.28539 4 4.50977 8.77563 4.50977 14.6667C4.50977 20.5577 9.28539 25.3333 15.1764 25.3333Z"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M28.5097 27.9999L22.7764 22.2666"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  Responsive Web Design (mWeb. + Desktop)
-                </button>
+                <div className="pills">
+                  {projectData?.platforms.map((item, index) => (
+                    <button key={index}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="33"
+                        height="32"
+                        viewBox="0 0 33 32"
+                        fill="none"
+                      >
+                        <path
+                          d="M11.1763 14.6667L13.8429 17.3333L19.1763 12"
+                          stroke="black"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15.1764 25.3333C21.0675 25.3333 25.8431 20.5577 25.8431 14.6667C25.8431 8.77563 21.0675 4 15.1764 4C9.28539 4 4.50977 8.77563 4.50977 14.6667C4.50977 20.5577 9.28539 25.3333 15.1764 25.3333Z"
+                          stroke="black"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M28.5097 27.9999L22.7764 22.2666"
+                          stroke="black"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      {item.platform}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div className="right">
-                <img src="/images/brand/brand-image.png" />
+                <div className="cover">
+                  {projectData?.brandImage ? (
+                    <img src={projectData?.brandImage} />
+                  ) : (
+                    <img src="/images/no-img.jpg" />
+                  )}
+                </div>
               </div>
             </div>
           </section>
@@ -529,49 +538,278 @@ export default function ProjectDetail() {
             <div className="content">
               <p>Objective:</p>
               <br />
-              <p className="desc">
-                Redesign the Chetak.com website to create a modern, minimalist
-                experience aligned with Chetak’s brand identity. The design will
-                highlight the brand’s story, showcase the line’s features, and
-                simplify the test-drive booking and early-sales process while
-                following brand guidelines to enhance user engagement and drive
-                conversions.
+              <p className="desc truncate-3">
+                {projectData?.project_objective}
               </p>
               <br />
               <p>Key Design Goals:</p>
               <br />
               <ul>
-                <li>
-                  <span>Brand Consistency:</span> Adhere to Chetak’s visual
-                  identity, ensuring cohesive communication of its values,
-                  heritage, and innovation.{" "}
-                </li>
-                <li>
-                  <span>User-Centric Experience:</span>
-                  Create intuitive navigation that allows seamless exploration,
-                  product discovery, and a smooth sales journey.
-                </li>
-                <li>
-                  <span>Storytelling Focus:</span> Use engaging visuals and
-                  concise copy to showcase Chetak’s 50+ year heritage.
-                </li>
-                <li>
-                  <span>Product Showcase:</span> Leverage high-quality visuals
-                  and interactive elements to effectively present Chetak’s
-                  scooters.
-                </li>
-                <li>
-                  <span>Sales Optimisation: </span>
-                  Implement clear CTAs and simplify the purchase journey to
-                  reduce drop-offs and improve conversions.
-                </li>
+                {projectData?.design_goals?.map((item) => (
+                  <li>
+                    <span>{item.subheading}:</span> {item.description}
+                  </li>
+                ))}
               </ul>
+            </div>
+          </section>
+          {projectData?.conditionals?.map((item, index) => (
+            <section key={index} className="approach briefs-section">
+              {/* <p>
+                <span>Minimialist</span> Approach
+              </p> */}
+              <p>
+                <span>{item.heading.split(/[\s:,.!?-]/)[0]}</span>{" "}
+                {item.heading.includes(" ")
+                  ? item.heading.slice(item.heading.indexOf(" ") + 1)
+                  : ""}
+              </p>
+              <div className="content-wrapper">
+                <div className="content-card big">
+                  <div className="cover">
+                    <img src={item.parentImg} alt="approach" />
+                  </div>
+                  <p>{item.parentCaption}</p>
+                </div>
+                <div className="content-card small">
+                  <div className="cover">
+                    <img src={item.childImg} alt="approach" />
+                  </div>
+                  <p>{item.childCaption}</p>
+                </div>
+              </div>
+              <p className="approach-desc truncate-3">{item.description}</p>
+            </section>
+          ))}
+          {/* <section className="approach briefs-section">
+            <p>
+              <span>Minimialist</span> Approach
+            </p>
+            <div className="content-wrapper">
+              <div className="content-card big">
+                <div className="cover">
+                  <img src="/images/approach/a1.png" alt="approach" />
+                </div>
+                <p>Apple</p>
+              </div>
+              <div className="content-card small">
+                <div className="cover">
+                  <img src="/images/approach/a2.png" alt="approach" />
+                </div>
+                <p>Terra</p>
+              </div>
+            </div>
+            <p className="approach-desc truncate-3">
+              The design will adopt a minimalist approach inspired by Apple’s
+              website, focusing on a clean layout that highlights Chetak’s
+              electric scooters through high-quality visuals and strategic
+              content placement.
+            </p>
+          </section>
+          <section className="bold briefs-section">
+            <p>
+              <span>Bold,</span> Yet simple
+            </p>
+            <div className="content-wrapper">
+              <div className="content-card big">
+                <div className="cover">
+                  <img src="/images/bold/b1.png" alt="approach" />
+                </div>
+                <p>OLA</p>
+              </div>
+              <div className="content-card small">
+                <div className="cover">
+                  <img src="/images/bold/b2.png" alt="approach" />
+                </div>
+                <p>Marchtee</p>
+              </div>
+            </div>
+            <p className="approach-desc truncate-3">
+              Incorporating Chetak’s brand colors and typography, the interface
+              will feature bold typography, simple navigation, and a
+              user-friendly layout, ensuring a sleek, modern experience across
+              all devices.
+            </p>
+          </section>
+          <section className="micro-interation briefs-section">
+            <p>
+              <span>Micro-</span> Interactions
+            </p>
+            <div className="content-wrapper">
+              <div className="content-card big">
+                <div className="cover">
+                  <img src="/images/micro-interaction/m1.png" alt="approach" />
+                </div>
+                <p>Cowboy</p>
+              </div>
+              <div className="content-card small">
+                <div className="cover">
+                  <img src="/images/micro-interaction/m2.png" alt="approach" />
+                </div>
+                <p>Riese & Miller</p>
+              </div>
+            </div>
+            <p className="approach-desc truncate-3">
+              Introduce subtle interactive animations, such as hover effects, to
+              enhance user experience without distracting from content, allowing
+              for product reveals and detailed exploration.
+            </p>
+          </section>
+          <section className="intuitive-scroll briefs-section">
+            <p>
+              <span>Intuitive</span> Scroll
+            </p>
+            <div className="content-wrapper">
+              <div className="content-card big">
+                <div className="cover">
+                  <img src="/images/scroll/s1.png" alt="approach" />
+                </div>
+                <p>DBrand</p>
+              </div>
+              <div className="content-card small">
+                <div className="cover">
+                  <img src="/images/scroll/s2.png" alt="approach" />
+                </div>
+                <p>Bose</p>
+              </div>
+            </div>
+            <p className="approach-desc truncate-3">
+              Implement scroll-triggered animations to dynamically introduce
+              content sections, ensuring a responsive and fluid browsing
+              experience that aligns with the minimalist aesthetic.
+            </p>
+          </section> */}
+          <section className="unique-pages">
+            <h6>
+              <span>Unique</span> Pages
+            </h6>
+            <div className="content">
+              <p>For Non-Logged In User:</p>
+              <ol>
+                {projectData?.uniqueNonLoggedInPages?.map((item, index) => (
+                  <li key={index}>{item.description}</li>
+                ))}
+              </ol>
+              <br />
+              <p>For Logged In User:</p>
+              <ol>
+                {projectData?.uniqueLoggedInPages?.map((item, index) => (
+                  <li key={index}>{item.description}</li>
+                ))}
+              </ol>
+            </div>
+          </section>
+          <section className="process">
+            <h6>
+              <span>Process</span>
+            </h6>
+            <ol>
+              {projectData?.process.map((item, index) => (
+                <li key={index}>
+                  {item?.subheading}
+                  <ol>
+                    {item?.description
+                      ?.split(".")
+                      .filter(Boolean) // Filter out any empty strings
+                      .map((detail, index) => (
+                        <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
+                      ))}
+                  </ol>
+                </li>
+              ))}
+            </ol>
+          </section>
+          <section className="sprint-plan">
+            <h6>
+              <span>Sprint</span> Plan
+            </h6>
+            <div className="content truncate-2">
+              <p>
+                Design Sprints will be discussed with the product and tech teams
+                in discovery to prioritise weekly deliverables in sync with
+                development plan
+              </p>
+            </div>
+            <TimelineChart
+              timeline_unit={projectData?.timeline_unit}
+              timeline_duration={projectData?.timeline_duration}
+              milestones={projectData?.milestones}
+            />
+          </section>
+          <section className="engagement">
+            <h6>
+              <span>Engagement </span> Structure
+            </h6>
+            <div className="content">
+              <div className="left">
+                <div className="upper bill">
+                  <p>Team Structure</p>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>Members</th>
+                        <th>Utilisation</th>
+                      </tr>
+                      {projectData?.teamStructure.map((item) => (
+                        <tr>
+                          <td>{item.subheading}</td>
+                          <td>{item.description}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="lower bill">
+                  <p>Commercials</p>
+                  <table className="lower-table">
+                    <tbody>
+                      {projectData?.commercials.map((item, index) => (
+                        <tr key={index}>
+                          <td>{item.subheading}</td>
+                          <td>{item.description}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="right">
+                <p>Terms</p>
+                <ol>
+                  {projectData?.termsAndConditions.map((item) => (
+                    <li>
+                      {item.subheading}
+                      <ol>
+                        {item?.description
+                          ?.split(".")
+                          .filter(Boolean) // Filter out any empty strings
+                          .map((detail, index) => (
+                            <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
+                          ))}
+                      </ol>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </section>
+          <section className="footer">
+            <div className="content">
+              <p>Write to us</p>
+              <a href="mailto:sayhello@onething.design">
+                <p className="mail">sayhello@onething.design</p>
+              </a>
+              <div className="locations">
+                <p>Gurgaon</p>
+                <p>Bangalore</p>
+                <p>Mumbai</p>
+                <p>California</p>
+              </div>
             </div>
           </section>
         </div>
         <div className="download-cta">
           <button onClick={downloadPDF} className="svg-wrapper">
-            {/* <div className="svg-wrapper"> */}
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -601,10 +839,42 @@ export default function ProjectDetail() {
                 ></path>{" "}
               </g>
             </svg>
-            {/* </div> */}
           </button>
         </div>
       </main>
     </div>
   );
+}
+export async function getServerSideProps({ params }) {
+  const { slug } = params; // Get the slug from URL params
+
+  let projectData = {};
+
+  try {
+    const projectRef = collection(db, "projects");
+    const snapshot = await getDocs(projectRef);
+    const projectList = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    // Find the project with the matching slug
+    projectData = projectList.find((item) => item.id === slug) || {};
+
+    // Convert non-serializable fields to serializable format (e.g., Date to string)
+    if (projectData.created_at && projectData.created_at.seconds) {
+      projectData.created_at = new Date(
+        projectData.created_at.seconds * 1000
+      ).toISOString();
+    }
+
+    // Convert any other non-serializable fields if necessary
+    // Example: if there's a field with Map or Set, you would need to convert it to an array or object
+  } catch (error) {
+    console.error("Error fetching project:", error);
+  }
+
+  return {
+    props: { projectData }, // Pass project data as a prop to the page
+  };
 }

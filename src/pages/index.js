@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
+import { format } from "date-fns";
+
 export default function Home() {
   const [projects, setProjects] = useState([]);
 
@@ -53,20 +55,30 @@ export default function Home() {
             <thead>
               <tr>
                 <th>Project Name</th>
-                <th>Client Name</th>
-                <th>Email</th>
-                <th>Number</th>
+                <th>Brand Name</th>
+                <th>Duration</th>
+                <th>Date Created</th>
                 <th></th>
-                {/* <th></th> */}
               </tr>
             </thead>
             <tbody id="projectTableBody">
               {projects.map((project) => (
                 <tr key={project.id}>
                   <td>{project.project_name || "---"}</td>
-                  <td>{project.client_name || "---"}</td>
-                  <td>{project.email || "---"}</td>
-                  <td>{project.number || "---"}</td>
+                  <td>{project.brand_name || "---"}</td>
+                  <td>
+                    {project.timeline_duration || "---"}{" "}
+                    {project.timeline_unit || "---"}
+                  </td>
+                  <td>
+                    {project.created_at && project.created_at.seconds
+                      ? format(
+                          new Date(project.created_at.seconds * 1000),
+                          "d MMM, yyyy"
+                        )
+                      : "---"}
+                  </td>
+
                   <td>
                     <Link href={`/project-detail/${project.id}`}>
                       <button>View Page</button>

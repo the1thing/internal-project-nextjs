@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -21,11 +22,13 @@ export default function Form() {
     termsAndConditions: [],
     commercials: [],
     teamStructure: [],
+    image: null,
   });
 
   const [designGoals, setDesignGoals] = useState([
     { subheading: "", description: "" },
   ]);
+
   const [process, setProcess] = useState([{ subheading: "", description: "" }]);
   const [termsAndConditions, setTermsAndConditions] = useState([
     { subheading: "", description: "" },
@@ -191,12 +194,32 @@ export default function Form() {
     }
 
     try {
+      // Reference to Firebase Storage
+      const storage = getStorage();
+
+      // Array to store uploaded image URLs
+      const imageUrls = [];
+
+      // Upload images and get their URLs
+      for (const file of formData.images) {
+        const storageRef = ref(storage, `images/${Date.now()}-${file.name}`);
+        await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        imageUrls.push(downloadURL);
+      }
+
+      // Save form data along with image URLs to Firestore
       const projectRef = collection(db, "projects");
-      await addDoc(projectRef, { ...formData, created_at: new Date() });
+      await addDoc(projectRef, {
+        ...formData,
+        images: imageUrls, // Add image URLs to Firestore
+        created_at: new Date(),
+      });
 
       alert("Project added successfully!");
       console.log(formData);
 
+      // Reset form data
       setFormData({
         brand_name: "",
         project_name: "",
@@ -215,6 +238,7 @@ export default function Form() {
         termsAndConditions: [],
         commercials: [],
         teamStructure: [],
+        images: [], // Reset images
       });
       setDesignGoals([{ subheading: "", description: "" }]);
       setProcess([{ subheading: "", description: "" }]);
@@ -280,7 +304,7 @@ export default function Form() {
               <label>Platforms:</label>
 
               <div className="platform-selection">
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     checked={formData.platforms?.includes("Mobile") || false}
                     onChange={(e) => {
@@ -298,7 +322,7 @@ export default function Form() {
                   />
                   <label for="html">Mobile</label>
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <input
                     checked={formData.platforms?.includes("Desktop") || false}
                     onChange={(e) => {
