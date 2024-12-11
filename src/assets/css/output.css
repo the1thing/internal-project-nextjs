@@ -236,7 +236,7 @@ header .f-container figure span {
   background-position: bottom center !important;
   background-repeat: no-repeat !important;
   min-height: 100vh;
-  background: linear-gradient(to top, rgba(100, 100, 100, 0.4), rgba(226, 226, 226, 0.6)), url("../images/skyline.svg");
+  background: linear-gradient(to top, rgba(100, 100, 100, 0.4), rgba(226, 226, 226, 0.6)), url("/images/skyline.svg");
 }
 .container-homepage table {
   width: 100%;
@@ -1498,6 +1498,10 @@ main .download-cta .svg-wrapper svg {
 }
 main .download-cta .svg-wrapper svg path {
   stroke: #e2e2e2;
+}
+main .download-cta .custom-loader {
+  width: 64px;
+  height: 64px;
 }
 
 @media print {

@@ -9,16 +9,20 @@ import { db } from "../../utils/firebaseConfig";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import TimelineChart from "@/components/chart";
+import { LoadableContext } from "next/dist/server/route-modules/pages/vendored/contexts/entrypoints";
+import Loading from "@/components/Loading";
 
 export default function ProjectDetail({ projectData }) {
   const pdfRef = useRef(null);
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const downloadpupppeteerPDF = () => {
     window.open(`/api/generate-pdf?projectId=${slug}`, "_blank");
   };
   const downloadPDF = () => {
+    setLoading(true);
     const input = pdfRef.current; // Reference to the container
     const sections = input.querySelectorAll("section"); // Select all sections
 
@@ -61,6 +65,7 @@ export default function ProjectDetail({ projectData }) {
 
       // Save the PDF
       pdf.save(`${projectData.project_name}.pdf`);
+      setLoading(true);
     };
 
     processSections().catch((error) => {
@@ -809,37 +814,40 @@ export default function ProjectDetail({ projectData }) {
           </section>
         </div>
         <div className="download-cta">
-          <button onClick={downloadPDF} className="svg-wrapper">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15"
-                  stroke="#1C274C"
-                  stroke-width="1.5"
+          {!loading && (
+            <button onClick={downloadPDF} className="svg-wrapper">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></path>{" "}
-                <path
-                  d="M12 3V16M12 16L16 11.625M12 16L8 11.625"
-                  stroke="#1C274C"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>{" "}
-              </g>
-            </svg>
-          </button>
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <path
+                    d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15"
+                    stroke="#1C274C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>{" "}
+                  <path
+                    d="M12 3V16M12 16L16 11.625M12 16L8 11.625"
+                    stroke="#1C274C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>{" "}
+                </g>
+              </svg>
+            </button>
+          )}
+          {loading && <Loading />}
         </div>
       </main>
     </div>
