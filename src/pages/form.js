@@ -1,11 +1,13 @@
 // pages/index.js
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 import Loading from "@/components/Loading";
+import { useRouter } from "next/router";
 
 export default function Form() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     brand_name: "",
     project_name: "",
@@ -486,6 +488,14 @@ export default function Form() {
     }
   };
 
+  useEffect(() => {
+    // Check if the role is not admin
+    const role = localStorage.getItem("role");
+
+    if (role !== "admin") {
+      router.push("/");
+    }
+  }, [router]);
   return (
     <div>
       <Head>

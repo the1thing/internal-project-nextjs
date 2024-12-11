@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 import { format } from "date-fns";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   const [projects, setProjects] = useState([]);
 
   // Fetch projects from Firestore
@@ -28,6 +30,14 @@ export default function Home() {
   useEffect(() => {
     fetchProjects();
   }, []);
+  useEffect(() => {
+    // Check if the role is not admin
+    const role = localStorage.getItem("role");
+
+    if (role !== "admin") {
+      router.push("/");
+    }
+  }, [router]);
   return (
     <div>
       <Head>

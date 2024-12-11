@@ -1539,5 +1539,76 @@ main .download-cta .custom-loader {
     transform: rotate(1turn);
   }
 }
+.login-page {
+  display: flex;
+}
+.login-page .login-form {
+  width: 50vh;
+  height: 54vh;
+  margin: auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+.login-page .form-container {
+  width: 100%;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.login-page .form-username {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+.login-page .form-username label {
+  font-weight: 600;
+}
+.login-page .login-form-username {
+  outline: none;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid grey;
+}
+.login-page .login-form-pasword {
+  display: flex;
+  outline: none;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  background-color: transparent;
+  justify-content: space-between;
+  border-radius: 6px;
+  align-items: center;
+}
+.login-page .login-form-pasword input {
+  width: 92%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.login-page .login-form-button {
+  width: max-content;
+  background-color: transparent;
+  padding: 8px 25px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+.login-page .login-heading {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+.login-page .login-form-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.login-page .submit-error-text {
+  color: #E91010;
+  font-weight: 500;
+  font-size: 15px;
+}
 
 /*# sourceMappingURL=output.css.map */
