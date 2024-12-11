@@ -1,1 +1,7 @@
-{"/_app":"pages/_app.js","/api/generate-pdf":"pages/api/generate-pdf.js","/_error":"pages/_error.js","/":"pages/index.html","/form":"pages/form.html","/_document":"pages/_document.js","/project-detail/[slug]":"pages/project-detail/[slug].js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/project-detail/[slug]": "pages/project-detail/[slug].js"
+}

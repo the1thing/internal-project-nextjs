@@ -3,15 +3,15 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header>
-      <div class="container">
-        <div class="f-container">
-          <a href="index.html" target="_blank" class="main-anchor">
+      <div className="container">
+        <div className="f-container">
+          <a href="/" target="_blank" className="main-anchor">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="100%"
               viewBox="0 0 217 32"
               fill="none"
-              class="nav-icon-desktop"
+              className="nav-icon-desktop"
             >
               <path
                 d="M0.027691 21.8844C4.86906 21.8782 9.33643 20.2513 12.9318 17.5092V26.1917H21.4976V17.5075H12.934C18.1678 13.5148 21.5531 7.15882 21.5531 2.20849e-06L12.9318 0C12.9318 7.25185 7.14205 13.1306 0 13.1306L6.53518e-06 21.8844H0.027691Z"
@@ -99,8 +99,8 @@ const Header = () => {
               ></path>
             </svg>
           </a>
-          <div class="cta-wrapper">
-            <a class="bttn bttn-primary" href="/">
+          <div className="cta-wrapper">
+            <a className="bttn bttn-primary" href="/project-list">
               Projects
             </a>
           </div>

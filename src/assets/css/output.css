@@ -216,6 +216,9 @@ header .f-container {
   align-items: center;
   padding: 24px 0;
 }
+header .f-container .main-anchor:hover {
+  color: inherit;
+}
 header .f-container figure {
   margin: 0;
   display: flex;

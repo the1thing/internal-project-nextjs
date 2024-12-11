@@ -18,6 +18,11 @@ header {
 		justify-content: space-between;
 		align-items: center;
 		padding: 24px 0;
+		.main-anchor{
+			&:hover{
+				color: inherit;
+			}
+		}
 		figure {
 			margin: 0;
 			display: flex;
