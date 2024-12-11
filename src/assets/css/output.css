@@ -261,6 +261,15 @@ header .f-container figure span {
   line-height: 120%;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
+.container-homepage table tr td.view-td,
+.container-homepage table tr th.view-td {
+  color: #E91010;
+}
+.container-homepage table tr td.view-td:hover svg,
+.container-homepage table tr th.view-td:hover svg {
+  transform: translateX(10px); /* Adjust the value (10px) for the desired shift */
+  transition: transform 0.3s ease; /* Smooth animation over 0.3 seconds */
+}
 .container-homepage table tr td a,
 .container-homepage table tr th a {
   color: inherit;
@@ -274,8 +283,11 @@ header .f-container figure span {
 }
 .container-homepage table tr td svg path,
 .container-homepage table tr th svg path {
-  stroke: #1a1a1a;
-  fill: #1a1a1a;
+  stroke: #E91010;
+  fill: #E91010;
+}
+.container-homepage table tr td {
+  font-size: 20px;
 }
 .container-homepage .container-head {
   display: flex;

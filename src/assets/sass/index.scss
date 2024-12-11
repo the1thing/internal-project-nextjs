@@ -33,7 +33,13 @@
 				line-height: 120%;
 				font-family: "Plus Jakarta Sans", sans-serif;
 				&.view-td{
-
+					color: #E91010;
+                  &:hover{
+					svg{
+						 transform: translateX(10px); /* Adjust the value (10px) for the desired shift */
+    transition: transform 0.3s ease; /* Smooth animation over 0.3 seconds */
+					}
+				  }
 
 				}
 
@@ -46,8 +52,8 @@
 					height: 32px;
 					width: 32px;
 					path{
-						stroke: #1a1a1a;
-						fill: #1a1a1a;
+						stroke: #E91010;;
+						fill: #E91010;;
 					}
 				}
 				// button {
@@ -71,6 +77,9 @@
 				// 	}
 				// }
 				
+			}
+			td{
+				font-size: 20px;
 			}
 			
 		}
