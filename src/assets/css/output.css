@@ -240,7 +240,8 @@ header .f-container figure span {
 }
 .container-homepage table {
   width: 100%;
-  border-collapse: collapse;
+  background-color: #fff;
+  border: none;
 }
 .container-homepage table tr {
   border: 1px solid;
@@ -249,8 +250,9 @@ header .f-container figure span {
 .container-homepage table tr th {
   font-weight: 600 !important;
 }
-.container-homepage table tr td, .container-homepage table tr th {
-  padding: 12px;
+.container-homepage table tr td,
+.container-homepage table tr th {
+  padding: 20px;
   border-right: 1px solid;
   text-align: center;
   font-size: 26px;
@@ -259,36 +261,21 @@ header .f-container figure span {
   line-height: 120%;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
-.container-homepage table tr td a, .container-homepage table tr th a {
+.container-homepage table tr td a,
+.container-homepage table tr th a {
   color: inherit;
+  text-decoration: none;
 }
-.container-homepage table tr td button, .container-homepage table tr th button {
-  padding: 12px 24px;
-  background: linear-gradient(to bottom, rgba(80, 80, 80, 0.8), rgba(150, 150, 150, 0.9));
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  color: #fefefe;
+.container-homepage table tr td svg,
+.container-homepage table tr th svg {
+  margin-left: 12px;
+  height: 32px;
+  width: 32px;
 }
-.container-homepage table tr td button:hover, .container-homepage table tr th button:hover {
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
-}
-.container-homepage table tr td button img, .container-homepage table tr th button img {
-  height: 24px;
-  width: 24px;
-}
-.container-homepage table tr td.button-td, .container-homepage table tr th.button-td {
-  padding: 12px 40px;
-}
-.container-homepage table tr th {
-  font-family: "worksans-semibold";
-}
-.container-homepage table tr td {
-  font-family: "worksans-regular";
+.container-homepage table tr td svg path,
+.container-homepage table tr th svg path {
+  stroke: #1a1a1a;
+  fill: #1a1a1a;
 }
 .container-homepage .container-head {
   display: flex;
@@ -370,7 +357,7 @@ header .f-container figure span {
   border: 1px solid #000;
   border-top: none;
   border-radius: 0 0 4px 4px;
-  background: none;
+  background: rgb(226, 226, 226);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
@@ -501,6 +488,36 @@ header .f-container figure span {
   align-items: center;
   justify-content: space-between;
 }
+.container-homepage form .upload-image-cloud {
+  position: relative;
+}
+.container-homepage form .upload-image-load {
+  position: absolute;
+  right: 25px;
+  top: 60px;
+}
+.container-homepage form .milestones-start-end {
+  display: flex;
+  justify-content: space-between;
+}
+.container-homepage form .milestones-start-end input {
+  width: 48%;
+}
+.container-homepage form .conditional-heading {
+  display: flex;
+  flex-direction: column;
+}
+.container-homepage form .conditionals {
+  display: flex;
+  justify-content: space-between;
+}
+.container-homepage form .conditionals-img-wrapper {
+  width: 48%;
+  position: relative;
+}
+.container-homepage form .conditional-cap-section {
+  width: 48%;
+}
 
 main {
   position: relative;
@@ -509,7 +526,7 @@ main .project-detail-page section {
   height: 900px;
 }
 main .project-detail-page section.cover {
-  background-color: #E2E2E2;
+  background-color: #e2e2e2;
   position: relative;
   display: flex;
   justify-content: center;
@@ -524,7 +541,7 @@ main .project-detail-page section.cover .logo-svg {
   left: 3%;
 }
 main .project-detail-page section.cover .small-text {
-  color: #1A1A1A;
+  color: #1a1a1a;
   text-align: right;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 18px;
@@ -536,7 +553,7 @@ main .project-detail-page section.cover .small-text {
   right: 3%;
 }
 main .project-detail-page section.cover .main-text {
-  color: #1A1A1A;
+  color: #1a1a1a;
   text-align: center;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 145.826px;
@@ -561,7 +578,7 @@ main .project-detail-page section.cover .main-text img {
   margin-inline: 18px;
 }
 main .project-detail-page section.cover .main-text .leaders {
-  color: #1A1A1A;
+  color: #1a1a1a;
   text-align: center;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 145.826px;
@@ -597,7 +614,7 @@ main .project-detail-page section.cover .glass-svg {
 }
 main .project-detail-page section.intro {
   position: relative;
-  background-color: #1A1A1A;
+  background-color: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -610,7 +627,7 @@ main .project-detail-page section.intro .glass-svg {
   opacity: 0.9;
 }
 main .project-detail-page section.intro p {
-  color: #E2E2E2;
+  color: #e2e2e2;
   text-align: center;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 57.633px;
@@ -622,7 +639,7 @@ main .project-detail-page section.intro p {
   z-index: 2;
 }
 main .project-detail-page section.intro p span {
-  color: #E2E2E2;
+  color: #e2e2e2;
   font-family: "times-italic", sans-serif;
   font-size: 64.494px;
   font-style: italic;
@@ -631,7 +648,7 @@ main .project-detail-page section.intro p span {
   text-transform: capitalize;
 }
 main .project-detail-page section.intro .small-text {
-  color: #E2E2E2;
+  color: #e2e2e2;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -696,11 +713,11 @@ main .project-detail-page section.numbers .num::after {
   bottom: 0;
   width: 100%;
   height: 1px; /* Adjust the border thickness */
-  background: linear-gradient(90deg, rgba(146, 146, 146, 0) 3.5%, #1A1A1A 50.5%, rgba(146, 146, 146, 0) 100%);
+  background: linear-gradient(90deg, rgba(146, 146, 146, 0) 3.5%, #1a1a1a 50.5%, rgba(146, 146, 146, 0) 100%);
   border-radius: 2px; /* Optional: makes the border edges rounded */
 }
 main .project-detail-page section.numbers .num p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.666px;
   font-style: normal;
@@ -710,7 +727,7 @@ main .project-detail-page section.numbers .num p {
   margin-bottom: 24px;
 }
 main .project-detail-page section.numbers .num p span {
-  color: var(--Primary-Red-700, #E91010);
+  color: var(--Primary-Red-700, #e91010);
   font-family: "times-italic", sans-serif;
   font-size: 112.691px;
   font-weight: 400;
@@ -727,14 +744,14 @@ main .project-detail-page section.awards {
   flex-direction: column;
 }
 main .project-detail-page section.awards p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 84px;
   font-weight: 400;
   line-height: 86px; /* 86.667% */
 }
 main .project-detail-page section.awards p span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   /* Display/130 - Extralight */
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 76px;
@@ -759,7 +776,7 @@ main .project-detail-page section.awards table tr::after {
   bottom: 0;
   width: 100%;
   height: 1px; /* Adjust the border thickness */
-  background: linear-gradient(90deg, rgba(146, 146, 146, 0) 3.5%, #1A1A1A 50.5%, rgba(146, 146, 146, 0) 100%);
+  background: linear-gradient(90deg, rgba(146, 146, 146, 0) 3.5%, #1a1a1a 50.5%, rgba(146, 146, 146, 0) 100%);
   border-radius: 2px; /* Optional: makes the border edges rounded */
 }
 main .project-detail-page section.awards table td {
@@ -771,7 +788,7 @@ main .project-detail-page section.awards table td img {
   height: 54px;
 }
 main .project-detail-page section.awards table td:first-child {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   /* Title 1/32 - Regular */
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
@@ -781,7 +798,7 @@ main .project-detail-page section.awards table td:first-child {
   text-transform: capitalize;
 }
 main .project-detail-page section.awards table td:nth-child(5) {
-  color: var(--Primary-Red-700, #E91010);
+  color: var(--Primary-Red-700, #e91010);
   font-family: "times-italic";
   font-size: 24px;
   font-style: italic;
@@ -790,7 +807,7 @@ main .project-detail-page section.awards table td:nth-child(5) {
   text-transform: capitalize;
 }
 main .project-detail-page section.awards table td:nth-child(6) {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -808,14 +825,14 @@ main .project-detail-page section.partners {
   background-size: cover;
 }
 main .project-detail-page section.partners p {
-  color: #E2E2E2;
+  color: #e2e2e2;
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
   line-height: 97.5px; /* 86.667% */
 }
 main .project-detail-page section.partners p span {
-  color: #E2E2E2;
+  color: #e2e2e2;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -847,7 +864,7 @@ main .project-detail-page section.ideation {
   height: 100vh;
 }
 main .project-detail-page section.ideation p {
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -856,7 +873,7 @@ main .project-detail-page section.ideation p {
   text-transform: uppercase;
 }
 main .project-detail-page section.ideation p span {
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-family: "times-italic", sans-serif;
   font-size: 112.5px;
   font-weight: 400;
@@ -877,7 +894,7 @@ main .project-detail-page section.ideation .ideation-group .topic img {
   height: 270px;
 }
 main .project-detail-page section.ideation .ideation-group .topic p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   text-align: center;
   font-family: "times-italic", sans-serif;
   font-weight: 400;
@@ -911,7 +928,7 @@ main .project-detail-page section.brand-intro .brand-head .cover img {
   max-height: 100%;
 }
 main .project-detail-page section.brand-intro .brand-head .brand-name {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic", sans-serif;
   font-size: 112px;
   font-weight: 400;
@@ -930,7 +947,7 @@ main .project-detail-page section.brand-intro .brand-body .left {
   gap: 54px;
 }
 main .project-detail-page section.brand-intro .brand-body .left p {
-  color: var(--Z-Primary-Black, #0F0E0E);
+  color: var(--Z-Primary-Black, #0f0e0e);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 36px;
   font-style: normal;
@@ -945,13 +962,13 @@ main .project-detail-page section.brand-intro .brand-body .left .pills {
 }
 main .project-detail-page section.brand-intro .brand-body .left .pills button {
   border-radius: 60px;
-  border: 1px solid var(--Z-Primary-Black, #0F0E0E);
+  border: 1px solid var(--Z-Primary-Black, #0f0e0e);
   padding: 16px;
   display: flex;
   align-items: center;
   width: 100%;
   gap: 12px;
-  color: var(--Z-Primary-Black, #0F0E0E);
+  color: var(--Z-Primary-Black, #0f0e0e);
   text-align: center;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 14px;
@@ -977,7 +994,7 @@ main .project-detail-page section.brief {
   gap: 48px;
 }
 main .project-detail-page section.brief p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -986,7 +1003,7 @@ main .project-detail-page section.brief p {
   text-transform: uppercase;
 }
 main .project-detail-page section.brief p span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -994,7 +1011,7 @@ main .project-detail-page section.brief p span {
   text-transform: capitalize;
 }
 main .project-detail-page section.brief .content p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   text-align: justify;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 26px;
@@ -1004,7 +1021,7 @@ main .project-detail-page section.brief .content p {
   text-transform: unset;
 }
 main .project-detail-page section.brief .content p.desc {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24.5px;
   font-style: normal;
@@ -1018,7 +1035,7 @@ main .project-detail-page section.brief .content ul {
 }
 main .project-detail-page section.brief .content ul li {
   margin-bottom: 32px;
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 22px;
   font-style: normal;
@@ -1026,7 +1043,7 @@ main .project-detail-page section.brief .content ul li {
   line-height: 120%;
 }
 main .project-detail-page section.brief .content ul li span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -1041,7 +1058,7 @@ main .project-detail-page section.briefs-section {
   gap: 52px;
 }
 main .project-detail-page section.briefs-section p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -1050,7 +1067,7 @@ main .project-detail-page section.briefs-section p {
   text-transform: uppercase;
 }
 main .project-detail-page section.briefs-section p span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -1076,7 +1093,7 @@ main .project-detail-page section.briefs-section .content-wrapper .content-card 
   width: 100%;
 }
 main .project-detail-page section.briefs-section .content-wrapper .content-card p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 18.75px;
   font-style: normal;
@@ -1090,7 +1107,7 @@ main .project-detail-page section.briefs-section .content-wrapper .content-card.
   width: 257.5px;
 }
 main .project-detail-page section.briefs-section .approach-desc {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   text-align: justify;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
@@ -1107,7 +1124,7 @@ main .project-detail-page section.unique-pages {
   gap: 42px;
 }
 main .project-detail-page section.unique-pages h6 {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -1116,7 +1133,7 @@ main .project-detail-page section.unique-pages h6 {
   text-transform: uppercase;
 }
 main .project-detail-page section.unique-pages h6 span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -1127,7 +1144,7 @@ main .project-detail-page section.unique-pages .content {
   padding-left: 42px;
 }
 main .project-detail-page section.unique-pages .content p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   text-align: justify;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
@@ -1139,7 +1156,7 @@ main .project-detail-page section.unique-pages .content ol {
   grid-template-columns: repeat(2, 1fr) !important;
 }
 main .project-detail-page section.unique-pages .content ol li {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -1154,7 +1171,7 @@ main .project-detail-page section.process {
   gap: 42px;
 }
 main .project-detail-page section.process h6 {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -1163,7 +1180,7 @@ main .project-detail-page section.process h6 {
   text-transform: uppercase;
 }
 main .project-detail-page section.process h6 span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -1175,7 +1192,7 @@ main .project-detail-page section.process ol {
   grid-template-columns: repeat(1, 1fr) !important;
 }
 main .project-detail-page section.process ol li {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -1202,7 +1219,7 @@ main .project-detail-page section.sprint-plan {
   flex-direction: column;
 }
 main .project-detail-page section.sprint-plan h6 {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -1211,7 +1228,7 @@ main .project-detail-page section.sprint-plan h6 {
   text-transform: uppercase;
 }
 main .project-detail-page section.sprint-plan h6 span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -1224,7 +1241,7 @@ main .project-detail-page section.sprint-plan .content {
 }
 main .project-detail-page section.sprint-plan .content p {
   width: 50%;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -1247,7 +1264,7 @@ main .project-detail-page section.sprint-plan .timeline-chart .label-container s
   text-align: right;
   font-size: 14px;
   font-weight: bold;
-  color: var(--Z-Primary-Black, #0F0E0E);
+  color: var(--Z-Primary-Black, #0f0e0e);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -1259,7 +1276,7 @@ main .project-detail-page section.sprint-plan .timeline-chart .label-container p
   left: 0;
   font-size: 14px;
   font-weight: bold;
-  color: var(--Z-Primary-Black, #0F0E0E);
+  color: var(--Z-Primary-Black, #0f0e0e);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -1273,7 +1290,7 @@ main .project-detail-page section.sprint-plan .timeline-chart .milestone-contain
 main .project-detail-page section.sprint-plan .timeline-chart .milestone-container .milestones {
   position: absolute;
   background-color: #1a1a1a;
-  color: #E2E2E2;
+  color: #e2e2e2;
   text-align: center;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
@@ -1288,7 +1305,7 @@ main .project-detail-page section.sprint-plan .timeline-chart .milestone-contain
   box-sizing: border-box;
 }
 main .project-detail-page section.sprint-plan .timeline-chart .milestone-container .milestones:last-child {
-  background-color: #E91010;
+  background-color: #e91010;
 }
 main .project-detail-page section.engagement {
   padding: 48px 64px;
@@ -1298,7 +1315,7 @@ main .project-detail-page section.engagement {
   gap: 60px;
 }
 main .project-detail-page section.engagement h6 {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 97.5px;
   font-style: normal;
@@ -1307,7 +1324,7 @@ main .project-detail-page section.engagement h6 {
   text-transform: uppercase;
 }
 main .project-detail-page section.engagement h6 span {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "times-italic";
   font-size: 112.5px;
   font-weight: 400;
@@ -1336,7 +1353,7 @@ main .project-detail-page section.engagement .content .left .bill {
   gap: 40px;
 }
 main .project-detail-page section.engagement .content .left .bill p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 25px;
   font-style: normal;
@@ -1344,7 +1361,7 @@ main .project-detail-page section.engagement .content .left .bill p {
   line-height: 37px; /* 148% */
 }
 main .project-detail-page section.engagement .content .left table th {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 25px;
   font-style: normal;
@@ -1352,7 +1369,7 @@ main .project-detail-page section.engagement .content .left table th {
   line-height: 49px;
 }
 main .project-detail-page section.engagement .content .left table td {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 25px;
   font-style: normal;
@@ -1374,7 +1391,7 @@ main .project-detail-page section.engagement .content .right::-webkit-scrollbar 
   display: none; /* For Chrome, Safari, and Opera */
 }
 main .project-detail-page section.engagement .content .right p {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 25px;
   font-style: normal;
@@ -1386,7 +1403,7 @@ main .project-detail-page section.engagement .content .right ol {
   grid-template-columns: repeat(1, 1fr) !important;
 }
 main .project-detail-page section.engagement .content .right ol li {
-  color: var(--Primary-Black-700, #1A1A1A);
+  color: var(--Primary-Black-700, #1a1a1a);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -1405,7 +1422,7 @@ main .project-detail-page section.footer .content {
   bottom: 4%;
 }
 main .project-detail-page section.footer .content p {
-  color: #E2E2E2;
+  color: #e2e2e2;
   /* Title 2/28 - Regular */
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 20px;
@@ -1416,7 +1433,7 @@ main .project-detail-page section.footer .content p {
   margin-bottom: 0;
 }
 main .project-detail-page section.footer .content p.mail {
-  color: #E2E2E2;
+  color: #e2e2e2;
   /* Display(Mweb)/74 - Times Italic */
   font-family: "times-italic", sans-serif;
   font-size: 52px;
@@ -1435,7 +1452,7 @@ main .project-detail-page section.footer .content .locations {
   gap: 44px;
 }
 main .project-detail-page section.footer .content .locations p {
-  color: var(--Z-Primary-White, #FFF);
+  color: var(--Z-Primary-White, #fff);
   /* Title 2/28 - Regular */
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 28px;
@@ -1472,7 +1489,8 @@ main .download-cta .svg-wrapper svg path {
 }
 
 @media print {
-  html, body {
+  html,
+  body {
     width: 1440px; /* Set the width to 1920px */
     height: 900px; /* Set the height to 1080px */
     margin: 0; /* Remove default margins */
@@ -1486,6 +1504,20 @@ main .download-cta .svg-wrapper svg path {
   @page {
     size: 1440px 900px; /* Set PDF dimensions to 1920x1080 */
     margin: 0; /* Remove page margins */
+  }
+}
+.custom-loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #1A1A1A 94%, rgba(0, 0, 0, 0)) top/8px 8px no-repeat, conic-gradient(rgba(0, 0, 0, 0) 30%, #1A1A1A);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - 8px), #000 0);
+  animation: s4 1s infinite linear;
+}
+
+@keyframes s4 {
+  100% {
+    transform: rotate(1turn);
   }
 }
 

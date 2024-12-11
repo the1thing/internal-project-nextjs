@@ -58,9 +58,8 @@ ul {
 
 ol {
 	display: grid;
-	grid-template-columns: repeat(4,1fr);
+	grid-template-columns: repeat(4, 1fr);
 }
-
 
 a {
 	text-decoration: none;
@@ -79,58 +78,55 @@ a {
 	font-size: 22px;
 }
 
-
-
-.main-anchor{
+.main-anchor {
 	color: inherit;
-	svg{
+	svg {
 		width: 200px;
 	}
 }
 
 .cta-wrapper {
-			.bttn-primary {
-				// background: var(--dark_pink_gradient);
-				// border-image: var(--dark_pink_gradient) 10;
-				text-decoration: none;
-				background: linear-gradient(
-  to bottom,
-  rgba(80, 80, 80, 0.8), /* Darker gray with more opacity */
-  rgba(150, 150, 150, 0.9) /* Deeper gray with higher opacity */
-);
+	.bttn-primary {
+		// background: var(--dark_pink_gradient);
+		// border-image: var(--dark_pink_gradient) 10;
+		text-decoration: none;
+		background: linear-gradient(
+			to bottom,
+			rgba(80, 80, 80, 0.8),
+			/* Darker gray with more opacity */ rgba(150, 150, 150, 0.9) /* Deeper gray with higher opacity */
+		);
 
-//     border-image: linear-gradient(
-//   to bottom,
-//   rgba(80, 80, 80, 0.8), /* Darker gray with more opacity */
-//   rgba(150, 150, 150, 0.9) /* Deeper gray with higher opacity */
-// );
+		//     border-image: linear-gradient(
+		//   to bottom,
+		//   rgba(80, 80, 80, 0.8), /* Darker gray with more opacity */
+		//   rgba(150, 150, 150, 0.9) /* Deeper gray with higher opacity */
+		// );
 
-				// border-style: solid;
-				border-width: 1px;
-				border-radius: 8px;
-				color: var(--white);
-				padding: 12px 16px;
-				width: 189px;
-				font-family: "worksans-medium",sans-serif;
-				&:hover{
-				box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-			}
-			}
+		// border-style: solid;
+		border-width: 1px;
+		border-radius: 8px;
+		color: var(--white);
+		padding: 12px 16px;
+		width: 189px;
+		font-family: "worksans-medium", sans-serif;
+		&:hover {
+			box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 		}
+	}
+}
 
 .truncate-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .truncate-4 {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-
