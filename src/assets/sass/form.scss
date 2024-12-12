@@ -18,6 +18,32 @@
               outline: none;
             }
         }
+        .form-div-input input{
+          width: 100%;
+          padding:10px 12px ;
+            border: 1px solid #000;
+            background: transparent;
+            border-radius: 6px;
+            &:focus{
+              border: 1px solid #000;
+              outline: none;
+            }
+        }
+
+
+        .form-div-input textarea{
+          width: 100%;
+          padding:10px 12px ;
+            border: 1px solid #000;
+            background: transparent;
+            border-radius: 6px;
+            &:focus{
+              border: 1px solid #000;
+              outline: none;
+            }
+        }
+        
+        
         textarea{
             padding:10px 12px ;
             border: 1px solid #000;
@@ -32,7 +58,7 @@
         .timeline-container {
     display: flex;
     gap: 1rem;
-    align-items: center;
+    // align-items: center;
    
      input[type="number"] {
     padding: 8px;
@@ -264,7 +290,28 @@ border: 1px solid black;
         
         .conditional-cap-section{
           width: 48%;
-        }        
+        }  
+        
+        .form-div-platforms input{
+          width :100%;
+        }
+
+        .form-div-platforms textarea{
+          width: 100%;
+        }
+
+        .form-div-milestones{
+          width: 50%;
+        }
+
+        .form-div-milestones input{
+          width: 99%;
+          margin: auto;
+        }
+
+    .caption-text{
+      font-size: 12px;
+    }
     }
 }
 

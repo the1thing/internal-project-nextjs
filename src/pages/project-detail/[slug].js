@@ -91,13 +91,8 @@ export default function ProjectDetail({ projectData }) {
       <Head>
         <title>Project Detail</title>
         <meta name="description" content="Onething Internal Projects" />
-        <link
-          rel="shortcut icon"
-          href="assets/images/favicon.ico"
-          type="image/x-icon"
-        />
-        <link rel="shortcut icon" href="" type="image/x-icon" />
-        <link rel="icon" href="" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
 
       <main>

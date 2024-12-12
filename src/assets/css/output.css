@@ -150,6 +150,16 @@ a:hover {
 .cta-wrapper .bttn-primary:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
+.cta-wrapper .cta {
+  text-align: center;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-decoration: none;
+  color: #E91010;
+}
 
 .truncate-3 {
   display: -webkit-box;
@@ -322,6 +332,28 @@ header .f-container figure span {
   border: 1px solid #000;
   outline: none;
 }
+.container-homepage form .form-div .form-div-input input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #000;
+  background: transparent;
+  border-radius: 6px;
+}
+.container-homepage form .form-div .form-div-input input:focus {
+  border: 1px solid #000;
+  outline: none;
+}
+.container-homepage form .form-div .form-div-input textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #000;
+  background: transparent;
+  border-radius: 6px;
+}
+.container-homepage form .form-div .form-div-input textarea:focus {
+  border: 1px solid #000;
+  outline: none;
+}
 .container-homepage form .form-div textarea {
   padding: 10px 12px;
   border: 1px solid #000;
@@ -336,7 +368,6 @@ header .f-container figure span {
 .container-homepage form .form-div .timeline-container {
   display: flex;
   gap: 1rem;
-  align-items: center;
 }
 .container-homepage form .form-div .timeline-container input[type=number] {
   padding: 8px;
@@ -532,6 +563,22 @@ header .f-container figure span {
 }
 .container-homepage form .conditional-cap-section {
   width: 48%;
+}
+.container-homepage form .form-div-platforms input {
+  width: 100%;
+}
+.container-homepage form .form-div-platforms textarea {
+  width: 100%;
+}
+.container-homepage form .form-div-milestones {
+  width: 50%;
+}
+.container-homepage form .form-div-milestones input {
+  width: 99%;
+  margin: auto;
+}
+.container-homepage form .caption-text {
+  font-size: 12px;
 }
 
 main {

@@ -27,9 +27,11 @@ export default function Home() {
       console.error("Error fetching projects: ", error);
     }
   };
+
   useEffect(() => {
     fetchProjects();
   }, []);
+
   useEffect(() => {
     // Check if the role is not admin
     const role = localStorage.getItem("role");
@@ -38,18 +40,14 @@ export default function Home() {
       router.push("/");
     }
   }, [router]);
+
   return (
     <div>
       <Head>
         <title>Internal Project</title>
         <meta name="description" content="Onething Internal Projects" />
-        <link
-          rel="shortcut icon"
-          href="assets/images/favicon.ico"
-          type="image/x-icon"
-        />
-        <link rel="shortcut icon" href="" type="image/x-icon" />
-        <link rel="icon" href="" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
 
       <main>

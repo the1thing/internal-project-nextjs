@@ -1,13 +1,11 @@
 // pages/index.js
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 import Loading from "@/components/Loading";
-import { useRouter } from "next/router";
 
 export default function Form() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     brand_name: "",
     project_name: "",
@@ -488,14 +486,6 @@ export default function Form() {
     }
   };
 
-  useEffect(() => {
-    // Check if the role is not admin
-    const role = localStorage.getItem("role");
-
-    if (role !== "admin") {
-      router.push("/");
-    }
-  }, [router]);
   return (
     <div>
       <Head>
@@ -509,39 +499,54 @@ export default function Form() {
             {/* Brand Name */}
             <div className="form-div">
               <label htmlFor="brand_name">Brand Name:</label>
-              <input
-                type="text"
-                id="brand_name"
-                value={formData.brand_name}
-                onChange={handleChange}
-                placeholder="Brand Name"
-                required
-              />
+              <div className="form-div-input">
+                <input
+                  type="text"
+                  id="brand_name"
+                  value={formData.brand_name}
+                  onChange={handleChange}
+                  placeholder="Brand Name"
+                  required
+                />
+                <div className="caption-text">
+                  Enter the brand name e.g. TVS
+                </div>
+              </div>
             </div>
 
             {/* Project Name */}
             <div className="form-div">
               <label htmlFor="project_name">Project Name:</label>
-              <input
-                type="text"
-                id="project_name"
-                value={formData.project_name}
-                onChange={handleChange}
-                placeholder="Project Name"
-                required
-              />
+              <div className="form-div-input">
+                <input
+                  type="text"
+                  id="project_name"
+                  value={formData.project_name}
+                  onChange={handleChange}
+                  placeholder="Project Name"
+                  required
+                />
+                <div className="caption-text">
+                  Enter the project name e.g. TVS Command Centre
+                </div>
+              </div>
             </div>
 
             {/* Project Brief */}
             <div className="form-div">
               <label htmlFor="project_brief">Short Overview:</label>
-              <textarea
-                id="project_brief"
-                value={formData.project_brief}
-                onChange={handleChange}
-                placeholder="Project Brief"
-                required
-              ></textarea>
+              <div className="form-div-input">
+                <textarea
+                  id="project_brief"
+                  value={formData.project_brief}
+                  onChange={handleChange}
+                  placeholder="Project Brief"
+                  required
+                ></textarea>
+                <div className="caption-text">
+                  Enter a short overview not more than 15 words
+                </div>
+              </div>
             </div>
 
             {/* Platforms */}
@@ -560,14 +565,23 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Mobile"
-                      value={platform.platform}
-                      onChange={(e) =>
-                        handlePlatformChange(index, "platform", e.target.value)
-                      }
-                    />
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Mobile"
+                        value={platform.platform}
+                        onChange={(e) =>
+                          handlePlatformChange(
+                            index,
+                            "platform",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the platform e.g. Mobile
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -583,13 +597,18 @@ export default function Form() {
             {/* Project Objective */}
             <div className="form-div">
               <label htmlFor="project_objective">Objective:</label>
-              <textarea
-                id="project_objective"
-                value={formData.project_objective}
-                onChange={handleChange}
-                placeholder="Project Objective"
-                required
-              ></textarea>
+              <div className="form-div-input">
+                <textarea
+                  id="project_objective"
+                  value={formData.project_objective}
+                  onChange={handleChange}
+                  placeholder="Project Objective"
+                  required
+                ></textarea>
+                <div className="caption-text">
+                  Enter the objective not more than 50 words
+                </div>
+              </div>
             </div>
 
             {/* Design Goals */}
@@ -608,29 +627,40 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Subheading"
-                      value={goal.subheading}
-                      onChange={(e) =>
-                        handleDesignGoalChange(
-                          index,
-                          "subheading",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <textarea
-                      placeholder="Description"
-                      value={goal.description}
-                      onChange={(e) =>
-                        handleDesignGoalChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Subheading"
+                        value={goal.subheading}
+                        onChange={(e) =>
+                          handleDesignGoalChange(
+                            index,
+                            "subheading",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the design goal e.g. "Brand Consistency"
+                      </div>
+                    </div>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={goal.description}
+                        onChange={(e) =>
+                          handleDesignGoalChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the respective design goal description in less
+                        than 20 words
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -659,25 +689,41 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Subheading"
-                      value={pro.subheading}
-                      onChange={(e) =>
-                        handleProcessChange(index, "subheading", e.target.value)
-                      }
-                    />
-                    <textarea
-                      placeholder="Description"
-                      value={pro.description}
-                      onChange={(e) =>
-                        handleProcessChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Subheading"
+                        value={pro.subheading}
+                        onChange={(e) =>
+                          handleProcessChange(
+                            index,
+                            "subheading",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the process heading e.g. "Information Architecture
+                        & Hierarchy, User Journeys & Wireframes"
+                      </div>
+                    </div>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={pro.description}
+                        onChange={(e) =>
+                          handleProcessChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the process points, every point should be
+                        seperated by a full stop(.)
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -706,21 +752,32 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Subheading"
-                      value={term.subheading}
-                      onChange={(e) =>
-                        handleTermChange(index, "subheading", e.target.value)
-                      }
-                    />
-                    <textarea
-                      placeholder="Description"
-                      value={term.description}
-                      onChange={(e) =>
-                        handleTermChange(index, "description", e.target.value)
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Subheading"
+                        value={term.subheading}
+                        onChange={(e) =>
+                          handleTermChange(index, "subheading", e.target.value)
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the Terms heading e.g. "Project Management"
+                      </div>
+                    </div>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={term.description}
+                        onChange={(e) =>
+                          handleTermChange(index, "description", e.target.value)
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the Conditions, every condition should be
+                        seperated by a full stop(.)
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -749,29 +806,39 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Subheading"
-                      value={comm.subheading}
-                      onChange={(e) =>
-                        handleCommercialChange(
-                          index,
-                          "subheading",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <textarea
-                      placeholder="Description"
-                      value={comm.description}
-                      onChange={(e) =>
-                        handleCommercialChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Subheading"
+                        value={comm.subheading}
+                        onChange={(e) =>
+                          handleCommercialChange(
+                            index,
+                            "subheading",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the Commercial heading e.g. Total Cost
+                      </div>
+                    </div>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={comm.description}
+                        onChange={(e) =>
+                          handleCommercialChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the Commercial value e.g. XYZ+GST
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -800,29 +867,41 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Subheading"
-                      value={teamStr.subheading}
-                      onChange={(e) =>
-                        handleTeamStructureChange(
-                          index,
-                          "subheading",
-                          e.target.value
-                        )
-                      }
-                    />
-                    <textarea
-                      placeholder="Description"
-                      value={teamStr.description}
-                      onChange={(e) =>
-                        handleTeamStructureChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <input
+                        type="text"
+                        placeholder="Subheading"
+                        value={teamStr.subheading}
+                        onChange={(e) =>
+                          handleTeamStructureChange(
+                            index,
+                            "subheading",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="caption-text">
+                        Enter the Team Members Designation e.g. Principal
+                        Designer
+                      </div>
+                    </div>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={teamStr.description}
+                        onChange={(e) =>
+                          handleTeamStructureChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the Team Members Utilisation in percentage(%) e.g.
+                        25%
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -838,55 +917,60 @@ export default function Form() {
             {/* Project Timeline */}
             <div className="form-div">
               <label htmlFor="timeline_duration">Project Timeline:</label>
-              <div className="timeline-container">
-                {/* Number Input */}
-                <input
-                  type="number"
-                  id="timeline_duration"
-                  value={formData.timeline_duration || ""}
-                  onChange={handleChange}
-                  placeholder="Enter duration"
-                  required
-                  min="1"
-                />
+              <div>
+                <div className="timeline-container">
+                  {/* Number Input */}
+                  <input
+                    type="number"
+                    id="timeline_duration"
+                    value={formData.timeline_duration || ""}
+                    onChange={handleChange}
+                    placeholder="Enter duration"
+                    required
+                    min="1"
+                  />
 
-                {/* Custom Dropdown */}
-                <div
-                  className={`custom-dropdown ${dropdownOpen ? "open" : ""}`}
-                  onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown visibility
-                >
-                  <div className="selected-option">
-                    {formData.timeline_unit || "Weeks"}
-                    <span className="arrow">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20px"
-                        height="20px"
-                        viewBox="0 0 24 24"
-                      >
-                        <rect x="0" fill="none" width="24" height="24" />
-                        <g>
-                          <path d="M20 9l-8 8-8-8 1.414-1.414L12 14.172l6.586-6.586" />
-                        </g>
-                      </svg>
-                    </span>
-                  </div>
-                  {dropdownOpen && (
-                    <div className="dropdown-options">
-                      <div
-                        className="dropdown-option"
-                        onClick={() => handleUnitChange("Weeks")}
-                      >
-                        Weeks
-                      </div>
-                      <div
-                        className="dropdown-option"
-                        onClick={() => handleUnitChange("Months")}
-                      >
-                        Months
-                      </div>
+                  {/* Custom Dropdown */}
+                  <div
+                    className={`custom-dropdown ${dropdownOpen ? "open" : ""}`}
+                    onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown visibility
+                  >
+                    <div className="selected-option">
+                      {formData.timeline_unit || "Weeks"}
+                      <span className="arrow">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20px"
+                          height="20px"
+                          viewBox="0 0 24 24"
+                        >
+                          <rect x="0" fill="none" width="24" height="24" />
+                          <g>
+                            <path d="M20 9l-8 8-8-8 1.414-1.414L12 14.172l6.586-6.586" />
+                          </g>
+                        </svg>
+                      </span>
                     </div>
-                  )}
+                    {dropdownOpen && (
+                      <div className="dropdown-options">
+                        <div
+                          className="dropdown-option"
+                          onClick={() => handleUnitChange("Weeks")}
+                        >
+                          Weeks
+                        </div>
+                        <div
+                          className="dropdown-option"
+                          onClick={() => handleUnitChange("Months")}
+                        >
+                          Months
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="caption-text">
+                  Enter the project timeline in number e.g. 3 weeks/months
                 </div>
               </div>
             </div>
@@ -908,35 +992,54 @@ export default function Form() {
                       </button>
                     </div>
                     <div className="milestones-start-end">
-                      <input
-                        type="number"
-                        placeholder="Start"
-                        value={milestone.start}
-                        onChange={(e) =>
-                          handleMilestoneChange(index, "start", e.target.value)
-                        }
-                      />
+                      <div className="form-div-milestones">
+                        <input
+                          type="number"
+                          placeholder="Start"
+                          value={milestone.start}
+                          onChange={(e) =>
+                            handleMilestoneChange(
+                              index,
+                              "start",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <div className="caption-text">
+                          Enter the start index e.g. 0
+                        </div>
+                      </div>
 
-                      <input
-                        type="number"
-                        placeholder="End"
-                        value={milestone.end}
-                        onChange={(e) =>
-                          handleMilestoneChange(index, "end", e.target.value)
-                        }
-                      />
+                      <div className="form-div-milestones">
+                        <input
+                          type="number"
+                          placeholder="End"
+                          value={milestone.end}
+                          onChange={(e) =>
+                            handleMilestoneChange(index, "end", e.target.value)
+                          }
+                        />
+                        <div className="caption-text">
+                          Enter the end index e.g. 1
+                        </div>
+                      </div>
                     </div>
-                    <textarea
-                      placeholder="Description"
-                      value={milestone.description}
-                      onChange={(e) =>
-                        handleMilestoneChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={milestone.description}
+                        onChange={(e) =>
+                          handleMilestoneChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the milestone description in less than 7 words
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -956,6 +1059,9 @@ export default function Form() {
                   <div className="form-div">
                     <label>Brand Logo:</label>
                     <input type="file" accept="image/*" />
+                    <div className="caption-text">
+                      Select the brand logo, dimensions should be "448px * 48px"
+                    </div>
                   </div>
                   <div className="upload-image-load">
                     <Loading />
@@ -970,6 +1076,9 @@ export default function Form() {
                       accept="image/*"
                       onChange={(e) => uploadImageHandler(e, "logo")}
                     />
+                    <div className="caption-text">
+                      Select the brand logo, dimensions should be "448px * 48px"
+                    </div>
                   </div>
                   <div className="upload-image-load">
                     {formData.brandLogo === "" ? (
@@ -1014,6 +1123,10 @@ export default function Form() {
                   <div className="form-div">
                     <label>Brand Image:</label>
                     <input type="file" accept="image/*" />
+                    <div className="caption-text">
+                      Select the brand Image, dimensions should be "634px *
+                      696px"
+                    </div>
                   </div>
                   <div className="upload-image-load">
                     <Loading />
@@ -1028,6 +1141,10 @@ export default function Form() {
                       accept="image/*"
                       onChange={(e) => uploadImageHandler(e, "BrandImage")}
                     />
+                    <div className="caption-text">
+                      Select the brand Image, dimensions should be "634px *
+                      696px"
+                    </div>
                   </div>
                   <div className="upload-image-load">
                     {formData.brandImage === "" ? (
@@ -1081,17 +1198,23 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <textarea
-                      placeholder="Page"
-                      value={uniqueLoggedInPage.description}
-                      onChange={(e) =>
-                        handleLoggedInPageChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Page"
+                        value={uniqueLoggedInPage.description}
+                        onChange={(e) =>
+                          handleLoggedInPageChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the pages which will be shown to a Logged In User
+                        e.g. "Book Vehicle flow"
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -1120,17 +1243,23 @@ export default function Form() {
                         Remove
                       </button>
                     </div>
-                    <textarea
-                      placeholder="Page"
-                      value={uniqueNonLoggedInPage.description}
-                      onChange={(e) =>
-                        handleNonLoggedInPageChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Page"
+                        value={uniqueNonLoggedInPage.description}
+                        onChange={(e) =>
+                          handleNonLoggedInPageChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the pages which will be shown to a Non-Logged In
+                        User e.g. "Home Page".
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -1161,18 +1290,24 @@ export default function Form() {
                     </div>
                     <div className="conditional-heading">
                       <label>Heading:</label>
-                      <input
-                        type="text"
-                        placeholder="Heading"
-                        value={conditional.heading}
-                        onChange={(e) =>
-                          handleConditionalChange(
-                            index,
-                            "heading",
-                            e.target.value
-                          )
-                        }
-                      />
+                      <div className="form-div-platforms">
+                        <input
+                          type="text"
+                          placeholder="Heading"
+                          value={conditional.heading}
+                          onChange={(e) =>
+                            handleConditionalChange(
+                              index,
+                              "heading",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <div className="caption-text">
+                          Enter the heading of conditional section in two words
+                          e.g. "Micro-Interactions".
+                        </div>
+                      </div>
                     </div>
                     <div className="conditionals">
                       <div className="conditionals-img-wrapper">
@@ -1180,14 +1315,20 @@ export default function Form() {
                           <div className="conditional-img-section">
                             <div className="form-div">
                               <label>Primary Image:</label>
-                              <input
-                                type="file"
-                                accept="image/*"
-                                placeholder="Primary Image"
-                                onChange={(e) =>
-                                  uploadImageHandler(e, "parentImg", index)
-                                }
-                              />
+                              <div className="form-div-platforms">
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  placeholder="Primary Image"
+                                  onChange={(e) =>
+                                    uploadImageHandler(e, "parentImg", index)
+                                  }
+                                />
+                                <div className="caption-text">
+                                  Select a primary image of dimensions "1298px *
+                                  584px"
+                                </div>
+                              </div>
                             </div>
                             <div className="upload-image-load">
                               <Loading />
@@ -1197,14 +1338,20 @@ export default function Form() {
                           <div className="conditional-img-section">
                             <div className="form-div">
                               <label>Primary Image:</label>
-                              <input
-                                type="file"
-                                accept="image/*"
-                                placeholder="Primary Image"
-                                onChange={(e) =>
-                                  uploadImageHandler(e, "parentImg", index)
-                                }
-                              />
+                              <div className="form-div-platforms">
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  placeholder="Primary Image"
+                                  onChange={(e) =>
+                                    uploadImageHandler(e, "parentImg", index)
+                                  }
+                                />
+                                <div className="caption-text">
+                                  Select a primary image of dimensions "1298px *
+                                  584px"
+                                </div>
+                              </div>
                             </div>
                             <div className="upload-image-load">
                               {conditional.parentImg === "" ? (
@@ -1247,14 +1394,20 @@ export default function Form() {
                           <div className="conditional-img-section">
                             <div className="form-div">
                               <label>Secondary Image:</label>
-                              <input
-                                type="file"
-                                accept="image/*"
-                                placeholder="Secondary Image"
-                                onChange={(e) =>
-                                  uploadImageHandler(e, "childImg", index)
-                                }
-                              />
+                              <div className="form-div-platforms">
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  placeholder="Secondary Image"
+                                  onChange={(e) =>
+                                    uploadImageHandler(e, "childImg", index)
+                                  }
+                                />
+                                <div className="caption-text">
+                                  Select a primary image of dimensions "308px *
+                                  580px"
+                                </div>
+                              </div>
                             </div>
                             <div className="upload-image-load">
                               <Loading />
@@ -1264,14 +1417,20 @@ export default function Form() {
                           <div className="conditional-img-section">
                             <div className="form-div">
                               <label>Secondary Image:</label>
-                              <input
-                                type="file"
-                                accept="image/*"
-                                placeholder="Secondary Image"
-                                onChange={(e) =>
-                                  uploadImageHandler(e, "childImg", index)
-                                }
-                              />
+                              <div className="form-div-platforms">
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  placeholder="Secondary Image"
+                                  onChange={(e) =>
+                                    uploadImageHandler(e, "childImg", index)
+                                  }
+                                />
+                                <div className="caption-text">
+                                  Select a secondary image of dimensions "308px
+                                  * 580px"
+                                </div>
+                              </div>
                             </div>
                             <div className="upload-image-load">
                               {conditional.childImg === "" ? (
@@ -1314,51 +1473,66 @@ export default function Form() {
                       <div className="conditional-cap-section">
                         <div className="form-div">
                           <label>Primary Caption:</label>
-                          <input
-                            type="text"
-                            placeholder="Primary Caption"
-                            value={conditional.parentCaption}
-                            onChange={(e) =>
-                              handleConditionalChange(
-                                index,
-                                "parentCaption",
-                                e.target.value
-                              )
-                            }
-                          />
+                          <div className="form-div-platforms">
+                            <input
+                              type="text"
+                              placeholder="Primary Caption"
+                              value={conditional.parentCaption}
+                              onChange={(e) =>
+                                handleConditionalChange(
+                                  index,
+                                  "parentCaption",
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <div className="caption-text">
+                              Enter 1-2 words primary image caption
+                            </div>
+                          </div>
                         </div>
                       </div>
 
                       <div className="conditional-cap-section">
                         <div className="form-div">
                           <label>Secondary Caption:</label>
-                          <input
-                            type="text"
-                            placeholder="Secondary Caption"
-                            value={conditional.childCaption}
-                            onChange={(e) =>
-                              handleConditionalChange(
-                                index,
-                                "childCaption",
-                                e.target.value
-                              )
-                            }
-                          />
+                          <div className="form-div-platforms">
+                            <input
+                              type="text"
+                              placeholder="Secondary Caption"
+                              value={conditional.childCaption}
+                              onChange={(e) =>
+                                handleConditionalChange(
+                                  index,
+                                  "childCaption",
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <div className="caption-text">
+                              Enter 1-2 words secondary image caption
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <textarea
-                      placeholder="Description"
-                      value={conditional.description}
-                      onChange={(e) =>
-                        handleConditionalChange(
-                          index,
-                          "description",
-                          e.target.value
-                        )
-                      }
-                    ></textarea>
+                    <div className="form-div-platforms">
+                      <textarea
+                        placeholder="Description"
+                        value={conditional.description}
+                        onChange={(e) =>
+                          handleConditionalChange(
+                            index,
+                            "description",
+                            e.target.value
+                          )
+                        }
+                      ></textarea>
+                      <div className="caption-text">
+                        Enter the description in less than 50 words.
+                      </div>
+                    </div>
                   </li>
                 ))}
               </ul>
