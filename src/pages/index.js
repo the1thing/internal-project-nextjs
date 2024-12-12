@@ -47,7 +47,6 @@ export default function index() {
 
   return (
     <div className="container-homepage login-page">
-      {/* <h2>Admin Login</h2> */}
       <form onSubmit={handleLogin} className="login-form">
         <div className="form-container">
           <div className="login-heading">Welcome Back!</div>

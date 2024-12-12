@@ -715,7 +715,8 @@ export default function ProjectDetail({ projectData }) {
                   <ol>
                     {item?.description
                       ?.split(".")
-                      .filter(Boolean) // Filter out any empty strings
+                      .filter(Boolean)
+                      .slice(0, 2) // Filter out any empty strings
                       .map((detail, index) => (
                         <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
                       ))}
@@ -788,6 +789,7 @@ export default function ProjectDetail({ projectData }) {
                         {item?.description
                           ?.split(".")
                           .filter(Boolean) // Filter out any empty strings
+                          .slice(0, 2) // Limit the array to the first 2 items
                           .map((detail, index) => (
                             <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
                           ))}
