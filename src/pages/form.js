@@ -359,11 +359,11 @@ export default function Form() {
       const selectedFile = e.target.files[0];
       const data = new FormData();
       data.append("file", selectedFile);
-      data.append("upload_preset", "connectr");
-      data.append("cloud_name", "decode");
+      data.append("upload_preset", "onething-projects");
+      data.append("cloud_name", "deiw8557k");
 
       const response = await fetch(
-        "https://api.cloudinary.com/v1_1/decode/image/upload",
+        "https://api.cloudinary.com/v1_1/deiw8557k/image/upload",
         {
           method: "POST",
           body: data,
