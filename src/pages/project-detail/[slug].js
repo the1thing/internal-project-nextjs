@@ -1,7 +1,6 @@
 // pages/index.js
 
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState, useRef } from "react";
 import { collection, getDocs } from "firebase/firestore";
@@ -9,7 +8,6 @@ import { db } from "../../utils/firebaseConfig";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import TimelineChart from "@/components/chart";
-import { LoadableContext } from "next/dist/server/route-modules/pages/vendored/contexts/entrypoints";
 import Loading from "@/components/Loading";
 
 export default function ProjectDetail({ projectData }) {
@@ -83,9 +81,7 @@ export default function ProjectDetail({ projectData }) {
   if (!isMounted) {
     return null;
   }
-  // useEffect(() => {
-  //   fetchProjectById();
-  // }, []);
+
   return (
     <div>
       <Head>

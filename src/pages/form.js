@@ -390,7 +390,7 @@ export default function Form() {
       const imageCloudLink = data.secure_url;
 
       setLoadingLogo(false);
-      console.log(data);
+
       setFormData((prevData) => ({
         ...prevData,
         brandLogo: imageCloudLink,
@@ -402,7 +402,7 @@ export default function Form() {
       const imageCloudLink = data.secure_url;
 
       setLoadingImage(false);
-      console.log(data);
+
       setFormData((prevData) => ({
         ...prevData,
         brandImage: imageCloudLink,
@@ -414,16 +414,13 @@ export default function Form() {
       const imageCloudLink = await data.secure_url;
 
       setLoadingParentImg(false);
-      console.log(data);
-      handleConditionalChange(index, "parentImg", imageCloudLink);
 
-      console.log(imageCloudLink);
+      handleConditionalChange(index, "parentImg", imageCloudLink);
     } else if (type === "childImg") {
       setLoadingChildImg(true);
 
       const data = await uploadImageColudinary(e);
       const imageCloudLink = await data.secure_url;
-      console.log(imageCloudLink);
 
       setLoadingChildImg(false);
 
@@ -439,7 +436,6 @@ export default function Form() {
       await addDoc(projectRef, { ...formData, created_at: new Date() });
 
       alert("Project added successfully!");
-      console.log(formData);
 
       setFormData({
         brand_name: "",

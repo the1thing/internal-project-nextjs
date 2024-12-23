@@ -7,9 +7,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
+import UploadPdf from "@/components/UploadPdf";
 
 export default function Home() {
   const router = useRouter();
+  const [isUploadPopup, setIsUploadPopup] = useState(false);
   const [projects, setProjects] = useState([]);
 
   // Fetch projects from Firestore
@@ -26,6 +28,14 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching projects: ", error);
     }
+  };
+
+  const uploadPopup = () => {
+    setIsUploadPopup(true);
+  };
+
+  const closePopup = () => {
+    setIsUploadPopup(false);
   };
 
   useEffect(() => {
@@ -51,11 +61,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className="container-homepage">
+        <div
+          className={`container-homepage ${
+            isUploadPopup ? "overflow-hidden" : ""
+          }`}
+        >
           <div className="container-head">
             <div className="cta-wrapper">
               <a className="bttn bttn-primary" href="/form">
                 Add New +
+              </a>
+            </div>
+            <div className="cta-wrapper" onClick={uploadPopup}>
+              <a className="bttn bttn-primary">
+                Upload <img src="/images/upload.svg" />
               </a>
             </div>
           </div>
@@ -104,21 +123,13 @@ export default function Home() {
                       </svg>
                     </Link>
                   </td>
-                  {/* <td>
-                    {" "}
-                    <button
-                      onClick={() =>
-                        alert(`Download initiated for ${project.id}`)
-                      }
-                    >
-                      Download Page
-                    </button>
-                  </td> */}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <div class={`blur-overlay ${isUploadPopup ? "active" : ""}`}></div>
+        <UploadPdf closePopup={closePopup} isUploadPopup={isUploadPopup} />
       </main>
     </div>
   );

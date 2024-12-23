@@ -86,6 +86,9 @@ a {
 }
 
 .cta-wrapper {
+	&:first-child{
+		    margin-right: 24px;
+	}
 	.bttn-primary {
 		// background: var(--dark_pink_gradient);
 		// border-image: var(--dark_pink_gradient) 10;
@@ -111,6 +114,10 @@ a {
 		font-family: "worksans-medium", sans-serif;
 		&:hover {
 			box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+		}
+		img{
+			height: 24px;
+			width: 24px;
 		}
 	}
 	.cta{

@@ -26,7 +26,6 @@ const TimelineChart = ({ timeline_unit }) => {
     { length: timeline_duration },
     (_, index) => `${timeline_unit === "months" ? "M" : "W"}${index + 1}`
   );
-  console.log(timelineLabels, "lebels");
 
   return (
     <div className="timeline-chart">

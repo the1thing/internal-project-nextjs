@@ -1,3 +1,17 @@
+main{
+	.blur-overlay{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+	&.active{
+		display: block !important;
+	}
+	}
 .container-homepage {
 	padding: 160px 80px 80px 80px;
 	background-size: contain !important;
@@ -10,6 +24,9 @@
 			/* Lighter black (soft gray) with 40% opacity */ rgba(226, 226, 226, 0.6) /* #e2e2e2 with 60% opacity */
 		),
 		url("/images/skyline.svg");
+		&.overflow-hidden{
+			overflow: hidden;
+		}
 	table {
 		width: 100%;
 		// border-collapse: collapse;
@@ -88,8 +105,43 @@
 		display: flex;
 		justify-content: flex-end;
 		padding-bottom: 40px;
+
 		button {
 			padding: 20px;
 		}
 	}
+}
+
+.upload-popup-wrapper{
+	display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    max-width: 50%;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+    z-index: 10000;
+	padding: 40px;
+  &.active{
+   display: block !important;
+  }
+   form{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+		padding-inline: unset;
+       
+
+    }
+.close-cta{
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	height: 32px;
+	width: 32px;
+} }
 }
