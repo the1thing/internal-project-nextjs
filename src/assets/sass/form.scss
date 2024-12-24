@@ -312,6 +312,20 @@ border: 1px solid black;
     .caption-text{
       font-size: 12px;
     }
+
+    .btn-submit{
+      text-align: right;
+    }
+
+    .loading-comp{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pdfViewer{
+      width: 600px;
+      height: 1000px;
+    }
     }
 // }
 

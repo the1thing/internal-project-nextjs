@@ -24,6 +24,7 @@ export default function Home() {
         id: doc.id,
         ...doc.data(),
       }));
+      console.log(projectList);
       setProjects(projectList);
     } catch (error) {
       console.error("Error fetching projects: ", error);
@@ -129,7 +130,7 @@ export default function Home() {
           </table>
         </div>
         <div class={`blur-overlay ${isUploadPopup ? "active" : ""}`}></div>
-        <UploadPdf closePopup={closePopup} isUploadPopup={isUploadPopup} />
+        <UploadPdf closePopup={closePopup} isUploadPopup={isUploadPopup} fetchProjects={fetchProjects} />
       </main>
     </div>
   );
