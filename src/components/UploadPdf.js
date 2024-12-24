@@ -220,6 +220,7 @@ export default function UploadPdf({ isUploadPopup, closePopup,fetchProjects }) {
                   <div className="form-div-input">
                     <input
                       type="file"
+                      accept="application/pdf"
                       onChange={(e) => uploadPdfHandler(e, "pdf")}
                     />
                   </div>
