@@ -2,6 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+<<<<<<< HEAD
   "/": "pages/index.js",
   "/project-list": "pages/project-list.js"
+=======
+  "/project-list": "pages/project-list.js",
+  "/project-detail/[slug]": "pages/project-detail/[slug].js",
+  "/": "pages/index.js"
+>>>>>>> 781d021 (delete functionality)
 }

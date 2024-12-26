@@ -10,14 +10,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
     "date-fns": "^4.1.0",
     "firebase": "^11.0.2",
     "firebase-admin": "^13.0.1",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
     "next": "15.0.3",
+    "pdfjs-dist": "^4.9.155",
     "puppeteer": "^23.10.1",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-pdf": "^9.2.1",
+    "react-pdf-js": "^5.1.0"
   }
 }

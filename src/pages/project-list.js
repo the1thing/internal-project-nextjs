@@ -3,7 +3,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
@@ -28,6 +28,19 @@ export default function Home() {
       setProjects(projectList);
     } catch (error) {
       console.error("Error fetching projects: ", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      // Reference the specific document in the "projects" collection
+      const projectDoc = doc(db, "projects", id);
+      // Delete the document
+      await deleteDoc(projectDoc);
+      fetchProjects();
+    } catch (error) {
+      console.error("Error deleting project:", error);
+      alert("Error deleting project");
     }
   };
 
@@ -124,13 +137,25 @@ export default function Home() {
                       </svg>
                     </Link>
                   </td>
+                  <td>
+                    <div
+                      className="delete-wrapper"
+                      onClick={() => handleDelete(project.id)}
+                    >
+                      <img src="/images/delete.svg" alt="delete" />
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <div class={`blur-overlay ${isUploadPopup ? "active" : ""}`}></div>
-        <UploadPdf closePopup={closePopup} isUploadPopup={isUploadPopup} fetchProjects={fetchProjects} />
+        <UploadPdf
+          closePopup={closePopup}
+          isUploadPopup={isUploadPopup}
+          fetchProjects={fetchProjects}
+        />
       </main>
     </div>
   );

@@ -25,6 +25,14 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+<<<<<<< HEAD
+=======
+    "/project-detail/[slug]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/project-detail/[slug].js"
+    ],
+>>>>>>> 781d021 (delete functionality)
     "/project-list": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

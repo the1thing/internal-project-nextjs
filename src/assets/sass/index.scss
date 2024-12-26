@@ -97,6 +97,16 @@ main{
 			}
 			td{
 				font-size: 20px;
+				.delete-wrapper{
+					height: 32px;
+					width: 32px;
+                    margin-inline: auto;
+					img{
+						width: 100%;
+						height: 100%;
+						
+					}
+				}
 			}
 			
 		}

@@ -15,6 +15,7 @@ export default function ProjectDetail({ projectData }) {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const pdfLink = projectData?.pdf_link;
 
   const downloadpupppeteerPDF = () => {
     window.open(`/api/generate-pdf?projectId=${slug}`, "_blank");
@@ -93,499 +94,522 @@ export default function ProjectDetail({ projectData }) {
 
       <main>
         <div>
-          {
-            projectData.isPdf ? (<div className="project-detail-page" id="pdf-content" ref={pdfRef}>
+          {projectData.isPdf ? (
+            <div className="project-detail-page">
               {/* {projectData.pdf_link} */}
               <section className="cover">
-                <iframe src={projectData.pdf_link} className="pdfViewer"></iframe>
+                <iframe
+                  src={projectData.pdf_link}
+                  className="pdfViewer"
+                ></iframe>
               </section>
-            </div>) : (
-              <div className="project-detail-page" id="pdf-content" ref={pdfRef}>
-                <section className="cover">
-                  <a href="/" target="_blank">
-                    <img
-                      src="/images/full-logo.svg"
-                      style={{ height: "auto", width: "auto" }}
-                      className="logo-svg"
-                    />
-                  </a>
-                  <p className="small-text">
-                    Designing for every customer touchpoint,
-                    <br /> from awareness to advocacy
-                  </p>
+            </div>
+          ) : (
+            <div className="project-detail-page" id="pdf-content" ref={pdfRef}>
+              <section className="cover">
+                <a href="/" target="_blank">
                   <img
-                    src="/images/round-svg.png"
-                    width={340}
-                    height={323}
-                    className="glass-svg"
-                  />
-                  <div className="main-text">
-                    The ui ux
-                    <br /> <span className="design-agency">DESIGN AGENCY</span> <br />
-                    <div className="headline">
-                      <span className="for">for</span>
-                      <div className="image-div">
-                        <img
-                          src="/images/thumbnail.png"
-                          style={{ height: "auto", width: "auto" }}
-                        ></img>{" "}
-                      </div>
-                      <b className="leaders">INDUSTRY</b>
-                    </div>
-                    LEADERS
-                  </div>
-                </section>
-                <section className="intro">
-                  <img
-                    src="/images/glass.svg"
+                    src="/images/full-logo.svg"
                     style={{ height: "auto", width: "auto" }}
-                    className="glass-svg"
+                    className="logo-svg"
                   />
-                  <p>
-                    Founded in 2015, we’re a<br />{" "}
-                    <span>digital strategy agency</span> that aims to
-                    <br /> deliver end-to-end digital solutions,
-                    <br /> enabling businesses to more effectively
-                    <br /> delight their users at every turn.
-                  </p>
-                  <p className="small-text">
-                    In a world full of distractions, it’s time
-                    <br /> to take back the focus.
-                  </p>
-                  <a
-                    href="https://onething.design"
-                    target="_blank"
-                    className="small-text site-visit"
+                </a>
+                <p className="small-text">
+                  Designing for every customer touchpoint,
+                  <br /> from awareness to advocacy
+                </p>
+                <img
+                  src="/images/round-svg.png"
+                  width={340}
+                  height={323}
+                  className="glass-svg"
+                />
+                <div className="main-text">
+                  The ui ux
+                  <br /> <span className="design-agency">
+                    DESIGN AGENCY
+                  </span>{" "}
+                  <br />
+                  <div className="headline">
+                    <span className="for">for</span>
+                    <div className="image-div">
+                      <img
+                        src="/images/thumbnail.png"
+                        style={{ height: "auto", width: "auto" }}
+                      ></img>{" "}
+                    </div>
+                    <b className="leaders">INDUSTRY</b>
+                  </div>
+                  LEADERS
+                </div>
+              </section>
+              <section className="intro">
+                <img
+                  src="/images/glass.svg"
+                  style={{ height: "auto", width: "auto" }}
+                  className="glass-svg"
+                />
+                <p>
+                  Founded in 2015, we’re a<br />{" "}
+                  <span>digital strategy agency</span> that aims to
+                  <br /> deliver end-to-end digital solutions,
+                  <br /> enabling businesses to more effectively
+                  <br /> delight their users at every turn.
+                </p>
+                <p className="small-text">
+                  In a world full of distractions, it’s time
+                  <br /> to take back the focus.
+                </p>
+                <a
+                  href="https://onething.design"
+                  target="_blank"
+                  className="small-text site-visit"
+                >
+                  Visit our site
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="76"
+                    height="69"
+                    viewBox="0 0 76 69"
+                    fill="none"
                   >
-                    Visit our site
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="76"
-                      height="69"
-                      viewBox="0 0 76 69"
-                      fill="none"
-                    >
-                      <path
-                        d="M43.5516 66.4511C43.6083 66.5145 45.3489 66.9993 47.419 67.528C49.4895 68.0566 51.2059 68.4084 51.2335 68.3102C51.2608 68.2117 51.475 66.6151 51.7093 64.7619C52.1798 61.0405 53.3191 56.6955 54.5365 53.978C58.3312 45.5091 65.1396 39.9015 73.3972 38.444L75.5 38.0728V34.3316V30.5902L73.5941 30.2349C61.1075 27.9073 52.9669 17.5336 51.444 2.0093C51.3447 0.995579 51.2258 0.166439 51.1801 0.166439C50.759 0.166439 43.781 2.03495 43.6491 2.18297C43.5537 2.29 43.6246 3.24033 43.8071 4.29445C45.8263 15.967 51.6078 25.4653 59.1104 29.4367L60.9101 30.3894L23.9017 30.464L0.5 30.5114V38.0829L23.9619 38.1303L60.883 38.2052L58.6109 39.4843C52.7166 42.8023 48.05 49.311 45.3018 58.0474C44.5187 60.5363 43.337 66.2105 43.5516 66.4511Z"
-                        fill="#E2E2E2"
-                      />
-                    </svg>
-                  </a>
-                </section>
-                <section className="numbers">
-                  <div className="num">
-                    <p>
-                      <span>8+</span> years in the business
-                    </p>
-                  </div>
-                  <div className="num num1">
-                    <img src="/images/profiles.png" width={800} height={96} />
-                    <p>
-                      <span>70+</span> team
-                    </p>
-                  </div>
-                  <div className="num num2">
-                    <p>
-                      <span>200+</span> Leading projects
-                    </p>
-                    <img src="/images/noise-thumbnail.png" width={73} height={73} />
-                  </div>
-                  <div className="num num3">
-                    <img src="/images/ico.png" width={104} height={116} />
-      
-                    <p>
-                      ACROSS <span>25+</span> Industries
-                    </p>
-                  </div>
-                  <div className="num num4">
-                    <p>
-                      <span>10+</span> AWARDS RECEIVED
-                    </p>
-                    <img src="/images/elephant.png" width={136} height={76} />
-                  </div>
-                </section>
-                <section className="awards">
+                    <path
+                      d="M43.5516 66.4511C43.6083 66.5145 45.3489 66.9993 47.419 67.528C49.4895 68.0566 51.2059 68.4084 51.2335 68.3102C51.2608 68.2117 51.475 66.6151 51.7093 64.7619C52.1798 61.0405 53.3191 56.6955 54.5365 53.978C58.3312 45.5091 65.1396 39.9015 73.3972 38.444L75.5 38.0728V34.3316V30.5902L73.5941 30.2349C61.1075 27.9073 52.9669 17.5336 51.444 2.0093C51.3447 0.995579 51.2258 0.166439 51.1801 0.166439C50.759 0.166439 43.781 2.03495 43.6491 2.18297C43.5537 2.29 43.6246 3.24033 43.8071 4.29445C45.8263 15.967 51.6078 25.4653 59.1104 29.4367L60.9101 30.3894L23.9017 30.464L0.5 30.5114V38.0829L23.9619 38.1303L60.883 38.2052L58.6109 39.4843C52.7166 42.8023 48.05 49.311 45.3018 58.0474C44.5187 60.5363 43.337 66.2105 43.5516 66.4511Z"
+                      fill="#E2E2E2"
+                    />
+                  </svg>
+                </a>
+              </section>
+              <section className="numbers">
+                <div className="num">
                   <p>
-                    Awards &<br /> <span>recognitions</span>
+                    <span>8+</span> years in the business
                   </p>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>2023</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img
-                            src="/images/awards/elephant.png"
-                            width={54}
-                            height={54}
-                          />
-                        </td>
-                        <td width="2%"></td>
-                        <td>Kyoorius Baby Blue Elephant </td>
-                        <td>Best design project</td>
-                      </tr>
-                      <tr>
-                        <td>2023</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img src="/images/awards/dna.png" width={54} height={54} />
-                        </td>
-                        <td width="2%"></td>
-                        <td>DNA Paris</td>
-                        <td>Best design project</td>
-                      </tr>
-                      <tr>
-                        <td>2022</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img
-                            src="/images/awards/elephant.png"
-                            width={54}
-                            height={54}
-                          />
-                        </td>
-                        <td width="2%"></td>
-                        <td>Kyoorius Baby Blue Elephant </td>
-                        <td>Best design project</td>
-                      </tr>
-                      <tr>
-                        <td>2021</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img src="/images/awards/ibda.png" width={54} height={54} />
-                        </td>
-                        <td width="2%"></td>
-                        <td>IBDA</td>
-                        <td>Best design studio</td>
-                      </tr>
-                      <tr>
-                        <td>2020</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img
-                            src="/images/awards/silicon.png"
-                            width={54}
-                            height={54}
-                          />
-                        </td>
-                        <td width="2%"></td>
-                        <td>Silicon India</td>
-                        <td>UI/UX Design Company of the year</td>
-                      </tr>
-                      <tr>
-                        <td>2019</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img
-                            src="/images/awards/clutch.png"
-                            width={54}
-                            height={54}
-                          />
-                        </td>
-                        <td width="2%"></td>
-                        <td>Clutch</td>
-                        <td>4.9 Rated</td>
-                      </tr>
-                      <tr>
-                        <td>2019</td>
-                        <td width="2%"></td>
-                        <td>
-                          <img src="/images/awards/ibda.png" width={54} height={54} />
-                        </td>
-                        <td width="2%"></td>
-                        <td>IBDA</td>
-                        <td>UI/UX Design Company of the year</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </section>
-                <section className="partners">
+                </div>
+                <div className="num num1">
+                  <img src="/images/profiles.png" width={800} height={96} />
                   <p>
-                    Our <span>partners</span>
+                    <span>70+</span> team
                   </p>
-                  <div className="grids">
-                    <div className="grid">
-                      <img
-                        src="/images/partners/re.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/coca-cola.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/decathlon.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/noises.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                    </div>
-                    <div className="grid">
-                      <img
-                        src="/images/partners/livspace.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/greencell.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/ht.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/hero.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                    </div>
-                    <div className="grid">
-                      <img
-                        src="/images/partners/kotak.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/airtel.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/tvs.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/jupiter.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                    </div>
-                    <div className="grid">
-                      <img
-                        src="/images/partners/healthkart.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/itc.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/swvl.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/slash.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                      <img
-                        src="/images/partners/rbl.svg"
-                        style={{ height: "auto", width: "auto" }}
-                      />
-                    </div>
+                </div>
+                <div className="num num2">
+                  <p>
+                    <span>200+</span> Leading projects
+                  </p>
+                  <img
+                    src="/images/noise-thumbnail.png"
+                    width={73}
+                    height={73}
+                  />
+                </div>
+                <div className="num num3">
+                  <img src="/images/ico.png" width={104} height={116} />
+
+                  <p>
+                    ACROSS <span>25+</span> Industries
+                  </p>
+                </div>
+                <div className="num num4">
+                  <p>
+                    <span>10+</span> AWARDS RECEIVED
+                  </p>
+                  <img src="/images/elephant.png" width={136} height={76} />
+                </div>
+              </section>
+              <section className="awards">
+                <p>
+                  Awards &<br /> <span>recognitions</span>
+                </p>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>2023</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/elephant.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>Kyoorius Baby Blue Elephant </td>
+                      <td>Best design project</td>
+                    </tr>
+                    <tr>
+                      <td>2023</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/dna.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>DNA Paris</td>
+                      <td>Best design project</td>
+                    </tr>
+                    <tr>
+                      <td>2022</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/elephant.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>Kyoorius Baby Blue Elephant </td>
+                      <td>Best design project</td>
+                    </tr>
+                    <tr>
+                      <td>2021</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/ibda.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>IBDA</td>
+                      <td>Best design studio</td>
+                    </tr>
+                    <tr>
+                      <td>2020</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/silicon.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>Silicon India</td>
+                      <td>UI/UX Design Company of the year</td>
+                    </tr>
+                    <tr>
+                      <td>2019</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/clutch.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>Clutch</td>
+                      <td>4.9 Rated</td>
+                    </tr>
+                    <tr>
+                      <td>2019</td>
+                      <td width="2%"></td>
+                      <td>
+                        <img
+                          src="/images/awards/ibda.png"
+                          width={54}
+                          height={54}
+                        />
+                      </td>
+                      <td width="2%"></td>
+                      <td>IBDA</td>
+                      <td>UI/UX Design Company of the year</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+              <section className="partners">
+                <p>
+                  Our <span>partners</span>
+                </p>
+                <div className="grids">
+                  <div className="grid">
+                    <img
+                      src="/images/partners/re.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/coca-cola.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/decathlon.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/noises.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
                   </div>
-                </section>
-                <section className="ideation">
-                  <div className="ideation-head">
+                  <div className="grid">
+                    <img
+                      src="/images/partners/livspace.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/greencell.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/ht.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/hero.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                  </div>
+                  <div className="grid">
+                    <img
+                      src="/images/partners/kotak.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/airtel.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/tvs.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/jupiter.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                  </div>
+                  <div className="grid">
+                    <img
+                      src="/images/partners/healthkart.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/itc.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/swvl.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/slash.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                    <img
+                      src="/images/partners/rbl.svg"
+                      style={{ height: "auto", width: "auto" }}
+                    />
+                  </div>
+                </div>
+              </section>
+              <section className="ideation">
+                <div className="ideation-head">
+                  <p>
+                    WITH YOU <span>from</span>
+                  </p>
+                  <p>IDEATION TO LAUNCH</p>
+                </div>
+                <div className="ideation-group">
+                  <div className="topic">
+                    <img src="/images/ideation/research.png" />
+                    <p>Research & Strategy</p>
+                  </div>
+                  <div className="topic">
+                    <img src="/images/ideation/branding.png" />
                     <p>
-                      WITH YOU <span>from</span>
+                      Branding <br />& Packaging
                     </p>
-                    <p>IDEATION TO LAUNCH</p>
                   </div>
-                  <div className="ideation-group">
-                    <div className="topic">
-                      <img src="/images/ideation/research.png" />
-                      <p>Research & Strategy</p>
-                    </div>
-                    <div className="topic">
-                      <img src="/images/ideation/branding.png" />
-                      <p>
-                        Branding <br />& Packaging
-                      </p>
-                    </div>
-                    <div className="topic">
-                      <img src="/images/ideation/digital.png" />
-                      <p>
-                        Digital Products
-                        <br /> & Websites
-                      </p>
-                    </div>
-                    <div className="topic">
-                      <img src="/images/ideation/technology.png" />
-                      <p>
-                        Emerging
-                        <br /> technologies
-                      </p>
-                    </div>
-                    <div className="topic">
-                      <img src="/images/ideation/content.png" />
-                      <p>Content</p>
-                    </div>
-                    <div className="topic">
-                      <img src="/images/ideation/development.png" />
-                      <p>Development</p>
+                  <div className="topic">
+                    <img src="/images/ideation/digital.png" />
+                    <p>
+                      Digital Products
+                      <br /> & Websites
+                    </p>
+                  </div>
+                  <div className="topic">
+                    <img src="/images/ideation/technology.png" />
+                    <p>
+                      Emerging
+                      <br /> technologies
+                    </p>
+                  </div>
+                  <div className="topic">
+                    <img src="/images/ideation/content.png" />
+                    <p>Content</p>
+                  </div>
+                  <div className="topic">
+                    <img src="/images/ideation/development.png" />
+                    <p>Development</p>
+                  </div>
+                </div>
+              </section>
+              <section className="brand-intro">
+                <div className="brand-head">
+                  <p className="brand-name">{projectData?.brand_name}</p>
+                  <div className="cover">
+                    {projectData?.brandLogo ? (
+                      <img src={projectData?.brandLogo} />
+                    ) : (
+                      <img src="/images/no-img.jpg" />
+                    )}
+                  </div>
+                </div>
+                <div className="brand-body">
+                  <div className="left">
+                    <p className="truncate-3">
+                      {/* Enhancing the web- experience for Bajaj’s iconic
+                        <b>“Chetak”</b>
+                        line of scooters. */}
+                      {projectData?.project_brief}
+                    </p>
+                    <div className="pills">
+                      {projectData?.platforms.map((item, index) => (
+                        <button key={index}>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="33"
+                            height="32"
+                            viewBox="0 0 33 32"
+                            fill="none"
+                          >
+                            <path
+                              d="M11.1763 14.6667L13.8429 17.3333L19.1763 12"
+                              stroke="black"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M15.1764 25.3333C21.0675 25.3333 25.8431 20.5577 25.8431 14.6667C25.8431 8.77563 21.0675 4 15.1764 4C9.28539 4 4.50977 8.77563 4.50977 14.6667C4.50977 20.5577 9.28539 25.3333 15.1764 25.3333Z"
+                              stroke="black"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M28.5097 27.9999L22.7764 22.2666"
+                              stroke="black"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                          {item.platform}
+                        </button>
+                      ))}
                     </div>
                   </div>
-                </section>
-                <section className="brand-intro">
-                  <div className="brand-head">
-                    <p className="brand-name">{projectData?.brand_name}</p>
+                  <div className="right">
                     <div className="cover">
-                      {projectData?.brandLogo ? (
-                        <img src={projectData?.brandLogo} />
+                      {projectData?.brandImage ? (
+                        <img src={projectData?.brandImage} />
                       ) : (
                         <img src="/images/no-img.jpg" />
                       )}
                     </div>
                   </div>
-                  <div className="brand-body">
-                    <div className="left">
-                      <p className="truncate-3">
-                        {/* Enhancing the web- experience for Bajaj’s iconic
-                        <b>“Chetak”</b>
-                        line of scooters. */}
-                        {projectData?.project_brief}
-                      </p>
-                      <div className="pills">
-                        {projectData?.platforms.map((item, index) => (
-                          <button key={index}>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="33"
-                              height="32"
-                              viewBox="0 0 33 32"
-                              fill="none"
-                            >
-                              <path
-                                d="M11.1763 14.6667L13.8429 17.3333L19.1763 12"
-                                stroke="black"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                d="M15.1764 25.3333C21.0675 25.3333 25.8431 20.5577 25.8431 14.6667C25.8431 8.77563 21.0675 4 15.1764 4C9.28539 4 4.50977 8.77563 4.50977 14.6667C4.50977 20.5577 9.28539 25.3333 15.1764 25.3333Z"
-                                stroke="black"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                              <path
-                                d="M28.5097 27.9999L22.7764 22.2666"
-                                stroke="black"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              />
-                            </svg>
-                            {item.platform}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="right">
-                      <div className="cover">
-                        {projectData?.brandImage ? (
-                          <img src={projectData?.brandImage} />
-                        ) : (
-                          <img src="/images/no-img.jpg" />
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section className="brief">
-                  <p>
-                    <span>The</span> Brief
+                </div>
+              </section>
+              <section className="brief">
+                <p>
+                  <span>The</span> Brief
+                </p>
+                <div className="content">
+                  <p>Objective:</p>
+                  <br />
+                  <p className="desc truncate-3">
+                    {projectData?.project_objective}
                   </p>
-                  <div className="content">
-                    <p>Objective:</p>
-                    <br />
-                    <p className="desc truncate-3">
-                      {projectData?.project_objective}
-                    </p>
-                    <br />
-                    <p>Key Design Goals:</p>
-                    <br />
-                    <ul>
-                      {projectData?.design_goals?.map((item) => (
-                        <li>
-                          <span>{item.subheading}:</span> {item.description}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </section>
-                {projectData?.conditionals?.map((item, index) => (
-                  <section key={index} className="approach briefs-section">
-                    {/* <p>
+                  <br />
+                  <p>Key Design Goals:</p>
+                  <br />
+                  <ul>
+                    {projectData?.design_goals?.map((item) => (
+                      <li>
+                        <span>{item.subheading}:</span> {item.description}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+              {projectData?.conditionals?.map((item, index) => (
+                <section key={index} className="approach briefs-section">
+                  {/* <p>
                       <span>Minimialist</span> Approach
                     </p> */}
-                    <p>
-                      <span>{item.heading.split(/[\s:,.!?-]/)[0]}</span>{" "}
-                      {item.heading.includes(" ")
-                        ? item.heading.slice(item.heading.indexOf(" ") + 1)
-                        : ""}
-                    </p>
-                    <div className="content-wrapper">
-                      <div className="content-card big">
-                        <div className="cover">
-                          <img src={item.parentImg} alt="approach" />
-                        </div>
-                        <p>{item.parentCaption}</p>
+                  <p>
+                    <span>{item.heading.split(/[\s:,.!?-]/)[0]}</span>{" "}
+                    {item.heading.includes(" ")
+                      ? item.heading.slice(item.heading.indexOf(" ") + 1)
+                      : ""}
+                  </p>
+                  <div className="content-wrapper">
+                    <div className="content-card big">
+                      <div className="cover">
+                        <img src={item.parentImg} alt="approach" />
                       </div>
-                      <div className="content-card small">
-                        <div className="cover">
-                          <img src={item.childImg} alt="approach" />
-                        </div>
-                        <p>{item.childCaption}</p>
-                      </div>
+                      <p>{item.parentCaption}</p>
                     </div>
-                    <p className="approach-desc truncate-3">{item.description}</p>
-                  </section>
-                ))}
-                {/* <section className="approach briefs-section">
+                    <div className="content-card small">
+                      <div className="cover">
+                        <img src={item.childImg} alt="approach" />
+                      </div>
+                      <p>{item.childCaption}</p>
+                    </div>
+                  </div>
+                  <p className="approach-desc truncate-3">{item.description}</p>
+                </section>
+              ))}
+              {/* <section className="approach briefs-section">
                   <p>
                     <span>Minimialist</span> Approach
                   </p>
@@ -683,142 +707,141 @@ export default function ProjectDetail({ projectData }) {
                     experience that aligns with the minimalist aesthetic.
                   </p>
                 </section> */}
-                <section className="unique-pages">
-                  <h6>
-                    <span>Unique</span> Pages
-                  </h6>
-                  <div className="content">
-                    <p>For Non-Logged In User:</p>
-                    <ol>
-                      {projectData?.uniqueNonLoggedInPages?.map((item, index) => (
-                        <li key={index}>{item.description}</li>
-                      ))}
-                    </ol>
-                    <br />
-                    <p>For Logged In User:</p>
-                    <ol>
-                      {projectData?.uniqueLoggedInPages?.map((item, index) => (
-                        <li key={index}>{item.description}</li>
-                      ))}
-                    </ol>
-                  </div>
-                </section>
-                <section className="process">
-                  <h6>
-                    <span>Process</span>
-                  </h6>
+              <section className="unique-pages">
+                <h6>
+                  <span>Unique</span> Pages
+                </h6>
+                <div className="content">
+                  <p>For Non-Logged In User:</p>
                   <ol>
-                    {projectData?.process.map((item, index) => (
-                      <li key={index}>
-                        {item?.subheading}
-                        <ol>
-                          {item?.description
-                            ?.split(".")
-                            .filter(Boolean)
-                            .slice(0, 2) // Filter out any empty strings
-                            .map((detail, index) => (
-                              <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
-                            ))}
-                        </ol>
-                      </li>
+                    {projectData?.uniqueNonLoggedInPages?.map((item, index) => (
+                      <li key={index}>{item.description}</li>
                     ))}
                   </ol>
-                </section>
-                <section className="sprint-plan">
-                  <h6>
-                    <span>Sprint</span> Plan
-                  </h6>
-                  <div className="content truncate-2">
-                    <p>
-                      Design Sprints will be discussed with the product and tech teams
-                      in discovery to prioritise weekly deliverables in sync with
-                      development plan
-                    </p>
-                  </div>
-                  <TimelineChart
-                    timeline_unit={projectData?.timeline_unit}
-                    timeline_duration={projectData?.timeline_duration}
-                    milestones={projectData?.milestones}
-                  />
-                </section>
-                <section className="engagement">
-                  <h6>
-                    <span>Engagement </span> Structure
-                  </h6>
-                  <div className="content">
-                    <div className="left">
-                      <div className="upper bill">
-                        <p>Team Structure</p>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <th>Members</th>
-                              <th>Utilisation</th>
-                            </tr>
-                            {projectData?.teamStructure.map((item) => (
-                              <tr>
-                                <td>{item.subheading}</td>
-                                <td>{item.description}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                      <div className="lower bill">
-                        <p>Commercials</p>
-                        <table className="lower-table">
-                          <tbody>
-                            {projectData?.commercials.map((item, index) => (
-                              <tr key={index}>
-                                <td>{item.subheading}</td>
-                                <td>{item.description}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div className="right">
-                      <p>Terms</p>
+                  <br />
+                  <p>For Logged In User:</p>
+                  <ol>
+                    {projectData?.uniqueLoggedInPages?.map((item, index) => (
+                      <li key={index}>{item.description}</li>
+                    ))}
+                  </ol>
+                </div>
+              </section>
+              <section className="process">
+                <h6>
+                  <span>Process</span>
+                </h6>
+                <ol>
+                  {projectData?.process.map((item, index) => (
+                    <li key={index}>
+                      {item?.subheading}
                       <ol>
-                        {projectData?.termsAndConditions.map((item) => (
-                          <li>
-                            {item.subheading}
-                            <ol>
-                              {item?.description
-                                ?.split(".")
-                                .filter(Boolean) // Filter out any empty strings
-                                .slice(0, 2) // Limit the array to the first 2 items
-                                .map((detail, index) => (
-                                  <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
-                                ))}
-                            </ol>
-                          </li>
-                        ))}
+                        {item?.description
+                          ?.split(".")
+                          .filter(Boolean)
+                          .slice(0, 2) // Filter out any empty strings
+                          .map((detail, index) => (
+                            <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
+                          ))}
                       </ol>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+              <section className="sprint-plan">
+                <h6>
+                  <span>Sprint</span> Plan
+                </h6>
+                <div className="content truncate-2">
+                  <p>
+                    Design Sprints will be discussed with the product and tech
+                    teams in discovery to prioritise weekly deliverables in sync
+                    with development plan
+                  </p>
+                </div>
+                <TimelineChart
+                  timeline_unit={projectData?.timeline_unit}
+                  timeline_duration={projectData?.timeline_duration}
+                  milestones={projectData?.milestones}
+                />
+              </section>
+              <section className="engagement">
+                <h6>
+                  <span>Engagement </span> Structure
+                </h6>
+                <div className="content">
+                  <div className="left">
+                    <div className="upper bill">
+                      <p>Team Structure</p>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <th>Members</th>
+                            <th>Utilisation</th>
+                          </tr>
+                          {projectData?.teamStructure.map((item) => (
+                            <tr>
+                              <td>{item.subheading}</td>
+                              <td>{item.description}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="lower bill">
+                      <p>Commercials</p>
+                      <table className="lower-table">
+                        <tbody>
+                          {projectData?.commercials.map((item, index) => (
+                            <tr key={index}>
+                              <td>{item.subheading}</td>
+                              <td>{item.description}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                </section>
-                <section className="footer">
-                  <div className="content">
-                    <p>Write to us</p>
-                    <a href="mailto:sayhello@onething.design">
-                      <p className="mail">sayhello@onething.design</p>
-                    </a>
-                    <div className="locations">
-                      <p>Gurgaon</p>
-                      <p>Bangalore</p>
-                      <p>Mumbai</p>
-                      <p>California</p>
-                    </div>
+                  <div className="right">
+                    <p>Terms</p>
+                    <ol>
+                      {projectData?.termsAndConditions.map((item) => (
+                        <li>
+                          {item.subheading}
+                          <ol>
+                            {item?.description
+                              ?.split(".")
+                              .filter(Boolean) // Filter out any empty strings
+                              .slice(0, 2) // Limit the array to the first 2 items
+                              .map((detail, index) => (
+                                <li key={index}>{detail.trim()}.</li> // Add the full stop back and trim the text
+                              ))}
+                          </ol>
+                        </li>
+                      ))}
+                    </ol>
                   </div>
-                </section>
-              </div>
-            )
-          }
+                </div>
+              </section>
+              <section className="footer">
+                <div className="content">
+                  <p>Write to us</p>
+                  <a href="mailto:sayhello@onething.design">
+                    <p className="mail">sayhello@onething.design</p>
+                  </a>
+                  <div className="locations">
+                    <p>Gurgaon</p>
+                    <p>Bangalore</p>
+                    <p>Mumbai</p>
+                    <p>California</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
         </div>
         <div className="download-cta">
-          {!loading && (
+          {!loading && !projectData?.isPdf && (
             <button onClick={downloadPDF} className="svg-wrapper">
               <svg
                 viewBox="0 0 24 24"

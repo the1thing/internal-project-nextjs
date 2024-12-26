@@ -4,9 +4,15 @@
   ],
   "devFiles": [
     "static/chunks/react-refresh.js"
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
   ],
   "ampDevFiles": [],
   "lowPriorityFiles": [
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
     "static/development/_buildManifest.js",
     "static/development/_ssgManifest.js"
   ],
@@ -17,8 +23,14 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/_app.js"
@@ -28,7 +40,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
+    "/project-detail/[slug]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/project-detail/[slug].js"
+    ],
     "/project-list": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/project-list.js"
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/project-list.js"
