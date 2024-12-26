@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBXpXqAY7BSkCYzsCDDtNCve255BwrjnZk",
-  authDomain: "internal-project-8163e.firebaseapp.com",
-  projectId: "internal-project-8163e",
-  storageBucket: "internal-project-8163e.appspot.com",
-  messagingSenderId: "16645092059",
-  appId: "1:16645092059:web:c1a0c7aecaaf5d6122d2fe",
-};
+  apiKey: "AIzaSyCPAowvd3HckO9Xhbc3o_F7RHjzEchKtpg",
+  authDomain: "onething-proposals.firebaseapp.com",
+  projectId: "onething-proposals",
+  storageBucket: "onething-proposals.firebasestorage.app",
+  messagingSenderId: "1085696405004",
+  appId: "1:1085696405004:web:d0e97e78e0f501f40cc829"
+ };
 
 // Initialize Firebase only if there are no apps initialized
 const firebaseApp = !getApps().length
