@@ -1,0 +1,59 @@
+.custom-pdf-input {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #cccccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .custom-pdf-input.dragging {
+    border-color: #4caf50; /* Highlight border when dragging */
+  }
+  
+  .custom-pdf-input .file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .custom-pdf-input .placeholder {
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+  }
+  
+  .custom-pdf-input.dragging .placeholder {
+    color: #4caf50;
+  }
+  
+  .close-cta{
+    cursor: pointer;
+  }
+  
+  .cls-1 {
+    fill: none;
+  }
+  
+  .upload-pdf-svg{
+    margin-left: 10px;
+  }
+  
+  .popup-form{
+    padding: 24px !important;
+    form{
+      gap: 12px !important;
+    }    
+  }
+  
+  .drag-pdf-input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }

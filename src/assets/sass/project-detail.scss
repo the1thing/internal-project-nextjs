@@ -550,6 +550,12 @@ main {
                         list-style: disc;
                         li {
                             margin-bottom: 32px;
+                            color: var(--Primary-Black-700, #1a1a1a);
+                            font-family: "Plus Jakarta Sans", sans-serif;
+                            font-size: 22px;
+                            font-style: normal;
+                            font-weight: 200;
+                            line-height: 120%;
                             span {
                                 color: var(--Primary-Black-700, #1a1a1a);
                                 font-family: "Plus Jakarta Sans", sans-serif;
@@ -558,12 +564,6 @@ main {
                                 font-weight: 500;
                                 line-height: 120%;
                             }
-                            color: var(--Primary-Black-700, #1a1a1a);
-                            font-family: "Plus Jakarta Sans", sans-serif;
-                            font-size: 22px;
-                            font-style: normal;
-                            font-weight: 200;
-                            line-height: 120%;
                         }
                     }
                 }
