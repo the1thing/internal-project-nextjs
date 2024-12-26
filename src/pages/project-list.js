@@ -15,6 +15,7 @@ export default function Home() {
   const [isUploadPopup, setIsUploadPopup] = useState(false);
   const [isDeletePopup, setIsDeletePopup] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [deleteProId, setDeleteProId] = useState("");
 
   // Fetch projects from Firestore
   const fetchProjects = async () => {
@@ -57,6 +58,11 @@ export default function Home() {
   const closeDeletePopup = () => {
     setIsDeletePopup(false);
   };
+
+  const deleteProject = (id) => {
+    setIsDeletePopup(true);
+    setDeleteProId(id);
+  }
 
   useEffect(() => {
     fetchProjects();
@@ -127,7 +133,7 @@ export default function Home() {
                   </td>
 
                   <td className="view-td">
-                    <Link href={`/project-detail/${project.id}`}>
+                    <Link href={`/project-detail/${project.id}`} target="_blank">
                       View Page{" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +152,7 @@ export default function Home() {
                   <td>
                     <div
                       className="delete-wrapper"
-                      onClick={() => setIsDeletePopup(true)}
+                      onClick={() => deleteProject(project.id)}
                     >
                       <img src="/images/delete.svg" alt="delete" />
                     </div>
@@ -166,6 +172,7 @@ export default function Home() {
           handleDelete={handleDelete}
           isDeletePopup={isDeletePopup}
           closeDeletePopup={closeDeletePopup}
+          deleteProId={deleteProId}
         />
       </main>
     </div>
