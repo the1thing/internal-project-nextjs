@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-self.__REACT_LOADABLE_MANIFEST="{}"
-=======
-self.__REACT_LOADABLE_MANIFEST="{\"../node_modules/jspdf/dist/jspdf.es.min.js -> canvg\":{\"id\":\"../node_modules/jspdf/dist/jspdf.es.min.js -> canvg\",\"files\":[\"static/chunks/node_modules_canvg_lib_index_es_js.js\"]},\"../node_modules/jspdf/dist/jspdf.es.min.js -> dompurify\":{\"id\":\"../node_modules/jspdf/dist/jspdf.es.min.js -> dompurify\",\"files\":[\"static/chunks/node_modules_dompurify_dist_purify_js.js\"]},\"../node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas\":{\"id\":\"../node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas\",\"files\":[]}}"
->>>>>>> 781d021 (delete functionality)
+self.__REACT_LOADABLE_MANIFEST='{"../node_modules/jspdf/dist/jspdf.es.min.js -> canvg":{"id":7315,"files":["static/chunks/72a30a16.d1697155d0628739.js","static/chunks/668.591f6d3cb500b3b0.js"]},"../node_modules/jspdf/dist/jspdf.es.min.js -> dompurify":{"id":2838,"files":["static/chunks/838.28acaf2a9d15ecd9.js"]},"../node_modules/jspdf/dist/jspdf.es.min.js -> html2canvas":{"id":354,"files":[]}}';
