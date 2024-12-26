@@ -3,18 +3,16 @@ import { useState } from "react";
 import Loading from "./Loading";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
+import DragAndDrop from "./DragAndDrop";
 
-export default function UploadPdf({
-  isUploadPopup,
-  closePopup,
-  fetchProjects,
-}) {
+export default function UploadPdf({ isUploadPopup, closePopup,fetchProjects }) {
+
   const [formData, setFormData] = useState({
     project_name: "",
     brand_name: "",
     timeline_unit: "Weeks",
-    pdf_link: "",
-    isPdf: true,
+    pdf_link : "",
+    isPdf : true
   });
 
   const handleChange = (e) => {
@@ -28,7 +26,7 @@ export default function UploadPdf({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
+    try{
       const projectRef = collection(db, "projects");
       await addDoc(projectRef, { ...formData, created_at: new Date() });
       console.log(formData);
@@ -36,48 +34,21 @@ export default function UploadPdf({
         project_name: "",
         brand_name: "",
         timeline_unit: "Weeks",
-        pdf_link: "",
-        isPdf: true,
-      });
-      closePopup();
-      fetchProjects();
-    } catch (error) {
+        pdf_link : "",
+        isPdf : true
+      })
+      closePopup()
+      fetchProjects()
+    }catch(error){
       console.error("Error adding project:", error);
       alert("Error adding project");
     }
-  };
+  }
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const uploadPdfCloudinary = async (e) => {
-    try {
-      console.log(e);
-      const selectedFile = e.target.files[0];
-      const data = new FormData();
-      data.append("file", selectedFile);
-      data.append("file", selectedFile);
-      data.append("upload_preset", "onething-projects");
-      data.append("cloud_name", "deiw8557k");
 
-      const response = await fetch(
-        "https://api.cloudinary.com/v1_1/deiw8557k/image/upload",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.error("Error uploading image:", error);
-      return null;
-    }
-  };
 
   // Function to handle dropdown item selection
   const handleUnitChange = (unit) => {
@@ -87,20 +58,10 @@ export default function UploadPdf({
     setDropdownOpen(false); // Close the dropdown
   };
 
-  async function uploadPdfHandler(e, type) {
-    setLoading(true);
-    const data = await uploadPdfCloudinary(e);
-    const pdfCloudLink = data.secure_url;
-    setLoading(false);
 
-    setFormData((prevData) => ({
-      ...prevData,
-      pdf_link: pdfCloudLink,
-    }));
-  }
 
   return (
-    <div className={`delete-popup-wrapper ${isUploadPopup ? "active" : ""}`}>
+    <div className={`upload-popup-wrapper popup-form ${isUploadPopup ? "active" : ""}`}>
       <div className="close-cta" onClick={closePopup}>
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -125,7 +86,7 @@ export default function UploadPdf({
           </g>
         </svg>
       </div>
-      <form id="projectForm" onSubmit={handleSubmit}>
+      <form id="projectForm" className="pdf-form" onSubmit={handleSubmit}>
         <div class="form-div">
           <label for="project_name">Project Name:</label>
           <div class="form-div-input">
@@ -197,51 +158,29 @@ export default function UploadPdf({
           </div>
         </div>
 
-        {/* Upload PDF */}
-        {loading ? (
-          <div className="upload-image-cloud">
-            <div className="form-div">
-              <label htmlFor="upload_pdf">Upload PDF:</label>
-              <div className="form-div-input">
-                <input
-                  type="file"
-                  onChange={(e) => uploadPdfHandler(e, "pdf")}
-                />
-              </div>
-            </div>
-            <div className="upload-image-load">
-              <Loading />
-            </div>
-          </div>
-        ) : (
-          <div className="upload-image-cloud">
-            <div className="form-div">
-              <label htmlFor="upload_pdf">Upload PDF:</label>
-              <div className="form-div-input">
-                <input
-                  type="file"
-                  accept="application/pdf"
-                  onChange={(e) => uploadPdfHandler(e, "pdf")}
-                />
-              </div>
-            </div>
-          </div>
-        )}
+        
+
+        <div className="form-div">
+          <label>Upload PDF:</label>
+          <DragAndDrop setFormData={setFormData} setLoading={setLoading} loading={loading}/>
+        </div>
 
         <div className="btn-submit">
-          {loading ? (
-            <div className="submit-btn">
-              <div className="loading-comp">
-                <Loading />
+          {
+            loading ? (
+              <div className="submit-btn">
+                <div className="loading-comp">
+                  <Loading/>
+                </div>
               </div>
-            </div>
-          ) : (
-            <div>
-              <button type="submit" className="submit-btn">
-                Add Project
-              </button>
-            </div>
-          )}
+            ) : (
+                <div>
+                  <button type="submit" className="submit-btn">
+                    Add Project
+                  </button>
+                </div>
+            )
+          }
         </div>
       </form>
     </div>
