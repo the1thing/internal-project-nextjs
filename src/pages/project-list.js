@@ -8,10 +8,12 @@ import { db } from "../utils/firebaseConfig";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
 import UploadPdf from "@/components/UploadPdf";
+import DeletePopup from "@/components/DeletePopup";
 
 export default function Home() {
   const router = useRouter();
   const [isUploadPopup, setIsUploadPopup] = useState(false);
+  const [isDeletePopup, setIsDeletePopup] = useState(false);
   const [projects, setProjects] = useState([]);
 
   // Fetch projects from Firestore
@@ -50,6 +52,10 @@ export default function Home() {
 
   const closePopup = () => {
     setIsUploadPopup(false);
+  };
+
+  const closeDeletePopup = () => {
+    setIsDeletePopup(false);
   };
 
   useEffect(() => {
@@ -140,7 +146,7 @@ export default function Home() {
                   <td>
                     <div
                       className="delete-wrapper"
-                      onClick={() => handleDelete(project.id)}
+                      onClick={() => setIsDeletePopup(true)}
                     >
                       <img src="/images/delete.svg" alt="delete" />
                     </div>
@@ -155,6 +161,11 @@ export default function Home() {
           closePopup={closePopup}
           isUploadPopup={isUploadPopup}
           fetchProjects={fetchProjects}
+        />
+        <DeletePopup
+          handleDelete={handleDelete}
+          isDeletePopup={isDeletePopup}
+          closeDeletePopup={closeDeletePopup}
         />
       </main>
     </div>
